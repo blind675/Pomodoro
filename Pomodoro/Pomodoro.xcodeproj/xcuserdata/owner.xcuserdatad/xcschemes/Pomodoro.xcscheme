@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB192CFF18F337C800FB7FC5"
+               BlueprintIdentifier = "EB8D5BB71A13D93D002DC189"
                BuildableName = "Pomodoro.app"
                BlueprintName = "Pomodoro"
+               ReferencedContainer = "container:Pomodoro.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EB8D5BD01A13D93D002DC189"
+               BuildableName = "PomodoroTests.xctest"
+               BlueprintName = "PomodoroTests"
                ReferencedContainer = "container:Pomodoro.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB192D2018F337C800FB7FC5"
+               BlueprintIdentifier = "EB8D5BD01A13D93D002DC189"
                BuildableName = "PomodoroTests.xctest"
                BlueprintName = "PomodoroTests"
                ReferencedContainer = "container:Pomodoro.xcodeproj">
@@ -42,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB192CFF18F337C800FB7FC5"
+            BlueprintIdentifier = "EB8D5BB71A13D93D002DC189"
             BuildableName = "Pomodoro.app"
             BlueprintName = "Pomodoro"
             ReferencedContainer = "container:Pomodoro.xcodeproj">
@@ -61,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB192CFF18F337C800FB7FC5"
+            BlueprintIdentifier = "EB8D5BB71A13D93D002DC189"
             BuildableName = "Pomodoro.app"
             BlueprintName = "Pomodoro"
             ReferencedContainer = "container:Pomodoro.xcodeproj">
@@ -79,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB192CFF18F337C800FB7FC5"
+            BlueprintIdentifier = "EB8D5BB71A13D93D002DC189"
             BuildableName = "Pomodoro.app"
             BlueprintName = "Pomodoro"
             ReferencedContainer = "container:Pomodoro.xcodeproj">
