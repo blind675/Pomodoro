@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB0BA98D1A17722400568214 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98C1A17722400568214 /* MainViewController.m */; };
+		EB0BA9901A17729D00568214 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98F1A17729D00568214 /* LeftViewController.m */; };
+		EB0BA9931A1772B500568214 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA9921A1772B500568214 /* RightViewController.m */; };
+		EB0BA9961A17868100568214 /* HorizontalPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA9951A17868100568214 /* HorizontalPageViewController.m */; };
+		EB0BA99C1A179C7C00568214 /* VerticalPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA99B1A179C7C00568214 /* VerticalPageViewController.m */; };
+		EB0BA99F1A179D7A00568214 /* UpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA99E1A179D7A00568214 /* UpViewController.m */; };
+		EB0BA9A21A179D9700568214 /* DownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA9A11A179D9700568214 /* DownViewController.m */; };
+		EB0BA9A51A17A30F00568214 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA9A41A17A30F00568214 /* BaseViewController.m */; };
+		EB0BA9AB1A17BE7700568214 /* TimerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA9AA1A17BE7700568214 /* TimerModel.m */; };
+		EB0BA9AE1A17FE9C00568214 /* TimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA9AD1A17FE9C00568214 /* TimerManager.m */; };
 		EB8D5BBE1A13D93D002DC189 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8D5BBD1A13D93D002DC189 /* main.m */; };
 		EB8D5BC11A13D93D002DC189 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8D5BC01A13D93D002DC189 /* AppDelegate.m */; };
-		EB8D5BC41A13D93D002DC189 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8D5BC31A13D93D002DC189 /* ViewController.m */; };
 		EB8D5BC71A13D93D002DC189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB8D5BC51A13D93D002DC189 /* Main.storyboard */; };
 		EB8D5BC91A13D93D002DC189 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB8D5BC81A13D93D002DC189 /* Images.xcassets */; };
 		EB8D5BCC1A13D93D002DC189 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB8D5BCA1A13D93D002DC189 /* LaunchScreen.xib */; };
@@ -27,13 +36,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB0BA98B1A17722400568214 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		EB0BA98C1A17722400568214 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		EB0BA98E1A17729D00568214 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		EB0BA98F1A17729D00568214 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		EB0BA9911A1772B500568214 /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
+		EB0BA9921A1772B500568214 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
+		EB0BA9941A17868100568214 /* HorizontalPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalPageViewController.h; sourceTree = "<group>"; };
+		EB0BA9951A17868100568214 /* HorizontalPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalPageViewController.m; sourceTree = "<group>"; };
+		EB0BA99A1A179C7C00568214 /* VerticalPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalPageViewController.h; sourceTree = "<group>"; };
+		EB0BA99B1A179C7C00568214 /* VerticalPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalPageViewController.m; sourceTree = "<group>"; };
+		EB0BA99D1A179D7A00568214 /* UpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpViewController.h; sourceTree = "<group>"; };
+		EB0BA99E1A179D7A00568214 /* UpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpViewController.m; sourceTree = "<group>"; };
+		EB0BA9A01A179D9700568214 /* DownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownViewController.h; sourceTree = "<group>"; };
+		EB0BA9A11A179D9700568214 /* DownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownViewController.m; sourceTree = "<group>"; };
+		EB0BA9A31A17A30F00568214 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		EB0BA9A41A17A30F00568214 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		EB0BA9A71A17B75400568214 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		EB0BA9A91A17BE7700568214 /* TimerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerModel.h; sourceTree = "<group>"; };
+		EB0BA9AA1A17BE7700568214 /* TimerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerModel.m; sourceTree = "<group>"; };
+		EB0BA9AC1A17FE9C00568214 /* TimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerManager.h; sourceTree = "<group>"; };
+		EB0BA9AD1A17FE9C00568214 /* TimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerManager.m; sourceTree = "<group>"; };
 		EB8D5BB81A13D93D002DC189 /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8D5BBC1A13D93D002DC189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB8D5BBD1A13D93D002DC189 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB8D5BBF1A13D93D002DC189 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB8D5BC01A13D93D002DC189 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EB8D5BC21A13D93D002DC189 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EB8D5BC31A13D93D002DC189 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EB8D5BC61A13D93D002DC189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB8D5BC81A13D93D002DC189 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB8D5BCB1A13D93D002DC189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -60,6 +88,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB0BA9A61A17B73700568214 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB0BA9A71A17B75400568214 /* Constants.h */,
+				EB0BA9A91A17BE7700568214 /* TimerModel.h */,
+				EB0BA9AA1A17BE7700568214 /* TimerModel.m */,
+				EB0BA9AC1A17FE9C00568214 /* TimerManager.h */,
+				EB0BA9AD1A17FE9C00568214 /* TimerManager.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		EB8D5BAF1A13D93D002DC189 = {
 			isa = PBXGroup;
 			children = (
@@ -81,11 +121,26 @@
 		EB8D5BBA1A13D93D002DC189 /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				EB0BA9A61A17B73700568214 /* Model */,
 				EB8D5BBF1A13D93D002DC189 /* AppDelegate.h */,
 				EB8D5BC01A13D93D002DC189 /* AppDelegate.m */,
-				EB8D5BC21A13D93D002DC189 /* ViewController.h */,
-				EB8D5BC31A13D93D002DC189 /* ViewController.m */,
+				EB0BA98E1A17729D00568214 /* LeftViewController.h */,
+				EB0BA98F1A17729D00568214 /* LeftViewController.m */,
+				EB0BA9911A1772B500568214 /* RightViewController.h */,
+				EB0BA9921A1772B500568214 /* RightViewController.m */,
+				EB0BA99D1A179D7A00568214 /* UpViewController.h */,
+				EB0BA99E1A179D7A00568214 /* UpViewController.m */,
+				EB0BA9A01A179D9700568214 /* DownViewController.h */,
+				EB0BA9A11A179D9700568214 /* DownViewController.m */,
+				EB0BA98C1A17722400568214 /* MainViewController.m */,
+				EB0BA98B1A17722400568214 /* MainViewController.h */,
+				EB0BA9A31A17A30F00568214 /* BaseViewController.h */,
+				EB0BA9A41A17A30F00568214 /* BaseViewController.m */,
 				EB8D5BC51A13D93D002DC189 /* Main.storyboard */,
+				EB0BA99A1A179C7C00568214 /* VerticalPageViewController.h */,
+				EB0BA99B1A179C7C00568214 /* VerticalPageViewController.m */,
+				EB0BA9941A17868100568214 /* HorizontalPageViewController.h */,
+				EB0BA9951A17868100568214 /* HorizontalPageViewController.m */,
 				EB8D5BC81A13D93D002DC189 /* Images.xcassets */,
 				EB8D5BCA1A13D93D002DC189 /* LaunchScreen.xib */,
 				EB8D5BBB1A13D93D002DC189 /* Supporting Files */,
@@ -219,8 +274,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB8D5BC41A13D93D002DC189 /* ViewController.m in Sources */,
+				EB0BA9A21A179D9700568214 /* DownViewController.m in Sources */,
+				EB0BA9A51A17A30F00568214 /* BaseViewController.m in Sources */,
+				EB0BA98D1A17722400568214 /* MainViewController.m in Sources */,
+				EB0BA9961A17868100568214 /* HorizontalPageViewController.m in Sources */,
 				EB8D5BC11A13D93D002DC189 /* AppDelegate.m in Sources */,
+				EB0BA9AE1A17FE9C00568214 /* TimerManager.m in Sources */,
+				EB0BA99F1A179D7A00568214 /* UpViewController.m in Sources */,
+				EB0BA9901A17729D00568214 /* LeftViewController.m in Sources */,
+				EB0BA99C1A179C7C00568214 /* VerticalPageViewController.m in Sources */,
+				EB0BA9931A1772B500568214 /* RightViewController.m in Sources */,
+				EB0BA9AB1A17BE7700568214 /* TimerModel.m in Sources */,
 				EB8D5BBE1A13D93D002DC189 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +476,7 @@
 				EB8D5BDD1A13D93D002DC189 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB8D5BDE1A13D93D002DC189 /* Build configuration list for PBXNativeTarget "PomodoroTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +485,7 @@
 				EB8D5BE01A13D93D002DC189 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
