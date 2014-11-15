@@ -12,6 +12,10 @@
 
 @interface MainViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+
 @end
 
 @implementation MainViewController
@@ -29,6 +33,59 @@
 }
 - (IBAction)startButtonPressed:(id)sender {
     [[TimerManager sharedManager]startTimer];
+    
+    self.startButton.userInteractionEnabled = NO;
+    self.stopButton.userInteractionEnabled = YES;
+    self.pauseButton.userInteractionEnabled = YES;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    [UIView setAnimationDelegate:self];
+    
+    self.startButton.alpha = 0.3;
+    self.stopButton.alpha = 1;
+    self.pauseButton.alpha = 1;
+    
+    [UIView commitAnimations];
+}
+
+- (IBAction)stopButtonPressed:(id)sender {
+    [[TimerManager sharedManager]stopTimer];
+    
+    self.startButton.userInteractionEnabled = YES;
+    self.stopButton.userInteractionEnabled = NO;
+    self.pauseButton.userInteractionEnabled = NO;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    [UIView setAnimationDelegate:self];
+    
+    self.startButton.alpha = 1;
+    self.stopButton.alpha = 0.3;
+    self.pauseButton.alpha = 0.3;
+    
+    [UIView commitAnimations];
+}
+
+- (IBAction)pauseButtonPressed:(id)sender {
+    [[TimerManager sharedManager]pauseTimer];
+    
+    self.startButton.userInteractionEnabled = YES;
+    self.stopButton.userInteractionEnabled = YES;
+    self.pauseButton.userInteractionEnabled = NO;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    [UIView setAnimationDelegate:self];
+    
+    self.startButton.alpha = 1;
+    self.stopButton.alpha = 1;
+    self.pauseButton.alpha = 0.3;
+    
+    [UIView commitAnimations];
 }
 
 /*

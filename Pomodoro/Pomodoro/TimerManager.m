@@ -28,6 +28,12 @@
 }
 
 -(void)startTimer{
-
 }
+
+-(void)pauseTimer{
+}
+
+-(void)stopTimer{
+}
+
 @end
