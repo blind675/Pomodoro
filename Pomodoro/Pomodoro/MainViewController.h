@@ -12,5 +12,7 @@
 @interface MainViewController : BaseViewController
 
 @property (assign, nonatomic) NSInteger indexNumber;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end

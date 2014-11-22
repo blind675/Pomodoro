@@ -10,7 +10,10 @@
 #import "TimerModel.h"
 #import "TimerManager.h"
 
-@interface MainViewController ()
+@interface MainViewController (){
+    unsigned short countDownValue;
+    NSTimer *generalTimer;
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
@@ -24,6 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [TimerModel setCurrentTimerState:TimerStop];
+    // reset the display
+    self.timeLabel.text = [TimerModel stringTimeFormatForValue:[TimerModel workingTime] * 60];
     
 }
 
@@ -32,60 +37,141 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)startButtonPressed:(id)sender {
-    [[TimerManager sharedManager]startTimer];
+    countDownValue = [[TimerManager sharedManager]startTimer];
     
-    self.startButton.userInteractionEnabled = NO;
-    self.stopButton.userInteractionEnabled = YES;
-    self.pauseButton.userInteractionEnabled = YES;
+    [self takeCareOfTheUI];
     
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    [UIView setAnimationDelegate:self];
-    
-    self.startButton.alpha = 0.3;
-    self.stopButton.alpha = 1;
-    self.pauseButton.alpha = 1;
-    
-    [UIView commitAnimations];
+    // create a general timer that trigers once every second
+    generalTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTicked) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:generalTimer forMode:NSDefaultRunLoopMode];
 }
 
 - (IBAction)stopButtonPressed:(id)sender {
+    
+    // clear the timer
+    [generalTimer invalidate];
+    generalTimer = nil;
+    
     [[TimerManager sharedManager]stopTimer];
+    [self takeCareOfTheUI];
     
-    self.startButton.userInteractionEnabled = YES;
-    self.stopButton.userInteractionEnabled = NO;
-    self.pauseButton.userInteractionEnabled = NO;
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    [UIView setAnimationDelegate:self];
-    
-    self.startButton.alpha = 1;
-    self.stopButton.alpha = 0.3;
-    self.pauseButton.alpha = 0.3;
-    
-    [UIView commitAnimations];
+    // also reset the
 }
 
 - (IBAction)pauseButtonPressed:(id)sender {
-    [[TimerManager sharedManager]pauseTimer];
     
-    self.startButton.userInteractionEnabled = YES;
-    self.stopButton.userInteractionEnabled = YES;
-    self.pauseButton.userInteractionEnabled = NO;
+    // clear the timer
+    [generalTimer invalidate];
+    generalTimer = nil;
     
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    [UIView setAnimationDelegate:self];
+    [[TimerManager sharedManager] pauseTimerAtValue:countDownValue];
+    [self takeCareOfTheUI];
+}
+
+#pragma mark - UI part
+
+-(void)takeCareOfTheUI {
     
-    self.startButton.alpha = 1;
-    self.stopButton.alpha = 1;
-    self.pauseButton.alpha = 0.3;
+    switch ([TimerModel currentTimerState]) {
+        case TimerStart:
+            
+            [self updateStatusLabel];
+            
+            self.startButton.userInteractionEnabled = NO;
+            self.stopButton.userInteractionEnabled = YES;
+            self.pauseButton.userInteractionEnabled = YES;
+            
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:0.2];
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+            [UIView setAnimationDelegate:self];
+            
+            self.startButton.alpha = 0.3;
+            self.stopButton.alpha = 1;
+            self.pauseButton.alpha = 1;
+            self.statusLabel.alpha = 1;
+            
+            [UIView commitAnimations];
+            
+            break;
+        
+        case TimerPause:
+            
+            self.startButton.userInteractionEnabled = YES;
+            self.stopButton.userInteractionEnabled = YES;
+            self.pauseButton.userInteractionEnabled = NO;
+            
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:0.2];
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+            [UIView setAnimationDelegate:self];
+            
+            self.startButton.alpha = 1;
+            self.stopButton.alpha = 1;
+            self.pauseButton.alpha = 0.3;
+            self.statusLabel.alpha = 0.6;
+            
+            [UIView commitAnimations];
+            
+            break;
+        
+        case TimerStop:
+            
+            self.startButton.userInteractionEnabled = YES;
+            self.stopButton.userInteractionEnabled = NO;
+            self.pauseButton.userInteractionEnabled = NO;
+            
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:0.2];
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+            [UIView setAnimationDelegate:self];
+            
+            self.startButton.alpha = 1;
+            self.stopButton.alpha = 0.3;
+            self.pauseButton.alpha = 0.3;
+            self.statusLabel.alpha = 0;
+            
+            [UIView commitAnimations];
+            
+            // reset the display
+            self.timeLabel.text = [TimerModel stringTimeFormatForValue:[TimerModel workingTime] * 60];
+            
+            break;
+            
+        default:
+            break;
+    }
+}
+
+-(void)updateStatusLabel {
     
-    [UIView commitAnimations];
+    switch ([TimerModel currentTimingIntervalType]) {
+        case WorkingTime:
+            self.statusLabel.text = @"Working Time";
+            break;
+        case ShortPause:
+            self.statusLabel.text = @"Short Break Time";
+            break;
+        case LongPause:
+            self.statusLabel.text = @"Long Break Time";
+            break;
+        default:
+            self.statusLabel.text = @"";
+            break;
+    }
+}
+
+#pragma mark - timer part
+
+-(void)timerTicked {
+    
+    if (countDownValue == 0) {
+        countDownValue = [[TimerManager sharedManager] moveToTheNextIntervalType];
+        [self updateStatusLabel];
+    }
+    
+    countDownValue--;
+    self.timeLabel.text = [TimerModel stringTimeFormatForValue:countDownValue];
 }
 
 /*

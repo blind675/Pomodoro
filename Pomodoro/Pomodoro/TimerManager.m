@@ -10,9 +10,7 @@
 #import "TimerModel.h"
 
 @interface TimerManager() {
-    NSTimer *timer;
-    NSTimer *shortPauseTimer;
-    NSTimer *longPauseTimer;
+    unsigned short remainingTime;
 }
 @end
 
@@ -21,19 +19,65 @@
 + (id)sharedManager {
     static TimerManager *sharedTimerManager = nil;
     @synchronized(self) {
-        if (sharedTimerManager == nil)
+        if (sharedTimerManager == nil){
             sharedTimerManager = [[self alloc] init];
+            //set the timer sate in the model to stop
+            [TimerModel setCurrentTimerState:TimerStop];
+        }
     }
     return sharedTimerManager;
 }
 
--(void)startTimer{
+-(unsigned short)startTimer {
+    
+    // this value will be returned
+    unsigned short countDounValue;
+    
+    if ([TimerModel currentTimerState] == TimerStop) {
+        countDounValue = 60 * [TimerModel workingTime];
+        [TimerModel setCurrentTimingIntervalType:WorkingTime];
+    } else {
+        countDounValue = remainingTime;
+    }
+    
+    [TimerModel setCurrentTimerState:TimerStart];
+    
+    return countDounValue;
 }
 
--(void)pauseTimer{
+-(void)pauseTimerAtValue:(unsigned short)countDownValue {
+    remainingTime = countDownValue;
+    [TimerModel setCurrentTimerState:TimerPause];
 }
 
--(void)stopTimer{
+-(void)stopTimer {
+    remainingTime = 0;
+    [TimerModel setCurrentTimerState:TimerStop];
+}
+
+-(unsigned short)moveToTheNextIntervalType {
+    
+    switch ([TimerModel currentTimingIntervalType]) {
+        case WorkingTime:
+            //TODO: triger notification if app not active
+            [TimerModel setCurrentTimingIntervalType:ShortPause];
+            return 60 * [TimerModel shortPauseTime];
+            break;
+        case ShortPause:
+            //TODO: triger notification if app not active
+            [TimerModel setCurrentTimingIntervalType:LongPause];
+            return 60 * [TimerModel longPauseTime];
+            break;
+        case LongPause:
+            //TODO: triger notification if app not active
+            [TimerModel setCurrentTimingIntervalType:WorkingTime];
+            return 60 * [TimerModel workingTime];
+            break;
+        default:
+            return 0;
+            break;
+    }
+
 }
 
 @end

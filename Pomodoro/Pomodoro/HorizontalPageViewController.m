@@ -7,6 +7,7 @@
 //
 
 #import "HorizontalPageViewController.h"
+#import "VerticalPageViewController.h"
 #import "BaseViewController.h"
 #import "Constants.h"
 
@@ -38,10 +39,6 @@
     [self addChildViewController:self.pageController];
     [[self view] addSubview:[self.pageController view]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleInvalidatePageViewController:)
-                                                 name:kInactivatePages
-                                               object:nil];
 }
 
 #pragma  - UIPageViewController Methods
@@ -75,7 +72,10 @@
         childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftView"];
         childViewController.indexNumber = 0;
     } else if(index == 1){
-        childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"verticalPageView"];
+        VerticalPageViewController* verticalControllerReference = [self.storyboard instantiateViewControllerWithIdentifier:@"verticalPageView"];
+        verticalControllerReference.horizontalViewControllerReference = self;
+        
+        childViewController = (BaseViewController *)verticalControllerReference;
         childViewController.indexNumber = 1;
     } else {
         childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightView"];
@@ -85,16 +85,12 @@
     return childViewController;
 }
 
-- (void)handleInvalidatePageViewController:(NSNotification *)note {
-    NSDictionary *theData = [note userInfo];
-    if (theData != nil) {
-        NSNumber *number = [theData objectForKey:kVisibleControllerIndex];
-        if ([number longValue] == 4 ) {
-            self.pageController.dataSource = self;
-        } else {
-            self.pageController.dataSource = nil;
-        }
-    }
+- (void)invalidatePageViewController {
+    self.pageController.dataSource = nil;
+}
+
+- (void)validatePageViewController {
+    self.pageController.dataSource = self;
 }
 
 - (void) dealloc
@@ -102,7 +98,6 @@
     // If you don't remove yourself as an observer, the Notification Center
     // will continue to try and send notification objects to the deallocated
     // object.
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

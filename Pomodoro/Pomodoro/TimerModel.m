@@ -27,14 +27,29 @@ static IntervalType intervalType;
 }
 
 // TODO: unhardcode
-+(short)workingTime{
-    return 25;
++(unsigned short)workingTime{
+    return 1;
+//    return 25;
 }
-+(short)shortPauseTime{
-    return 5;
++(unsigned short)shortPauseTime{
+    return 2;
+//    return 5;
 }
-+(short)longPauseTime{
-    return 15;
++(unsigned short)longPauseTime{
+    return 3;
+//    return 15;
+}
+
+#pragma mark - Tools
+
++(NSString*)stringTimeFormatForValue:(unsigned short)countDownValue {
+
+    // devide the countDownValue by 60 but to get the quotient and remainder
+    // but do it objective c way
+    div_t divresult;
+    divresult = div (countDownValue,60);
+
+    return [NSString stringWithFormat:@"%02d:%02d",divresult.quot,divresult.rem];
 }
 
 @end

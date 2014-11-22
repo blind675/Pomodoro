@@ -26,8 +26,9 @@ typedef enum {
 +(void)setCurrentTimerState:(TimerState)newState;
 +(IntervalType)currentTimingIntervalType;
 +(void)setCurrentTimingIntervalType:(IntervalType)newType;
-+(short)workingTime;
-+(short)shortPauseTime;
-+(short)longPauseTime;
++(unsigned short)workingTime;
++(unsigned short)shortPauseTime;
++(unsigned short)longPauseTime;
++(NSString*)stringTimeFormatForValue:(unsigned short)countDownValue;
 
 @end

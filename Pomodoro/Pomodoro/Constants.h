@@ -9,7 +9,4 @@
 #ifndef Pomodoro_Constants_h
 #define Pomodoro_Constants_h
 
-#define kInactivatePages @"kInactivatePages"
-#define kVisibleControllerIndex @"kVisibleControllerIndex"
-
 #endif

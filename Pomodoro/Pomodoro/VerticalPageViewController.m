@@ -84,11 +84,12 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {
     UIViewController *vc = [pageViewController.viewControllers lastObject];
-    // All instances of TestClass will be notified
-    NSNumber *number = [NSNumber numberWithLong:[(BaseViewController *)vc indexNumber]];
-    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:number forKey:kVisibleControllerIndex];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kInactivatePages object:self userInfo:dataDict];
-
+ 
+    if ([(BaseViewController *)vc indexNumber] == 4 ) {
+        [self.horizontalViewControllerReference validatePageViewController];
+    } else {
+        [self.horizontalViewControllerReference invalidatePageViewController];
+    }
 }
 
 @end

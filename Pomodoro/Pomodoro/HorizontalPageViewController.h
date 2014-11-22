@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) UIPageViewController *pageController;
 
+- (void)invalidatePageViewController;
+- (void)validatePageViewController;
+
 @end

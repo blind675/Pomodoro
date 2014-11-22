@@ -12,8 +12,9 @@
 
 +(id)sharedManager;
 
--(void)startTimer;
--(void)pauseTimer;
+-(unsigned short)startTimer;
+-(void)pauseTimerAtValue:(unsigned short)countDownValue;
 -(void)stopTimer;
+-(unsigned short)moveToTheNextIntervalType;
 
 @end
