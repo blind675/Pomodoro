@@ -12,5 +12,8 @@
 @interface RightViewController : BaseViewController
 
 @property (assign, nonatomic) NSInteger indexNumber;
+@property (weak, nonatomic) IBOutlet UILabel *workingTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *shortPauseTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *longPauseTimeLabel;
 
 @end

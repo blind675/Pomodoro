@@ -34,7 +34,7 @@
     unsigned short countDounValue;
     
     if ([TimerModel currentTimerState] == TimerStop) {
-        countDounValue = 60 * [TimerModel workingTime];
+        countDounValue =[TimerModel workingTime];
         [TimerModel setCurrentTimingIntervalType:WorkingTime];
     } else {
         countDounValue = remainingTime;
@@ -61,17 +61,17 @@
         case WorkingTime:
             //TODO: triger notification if app not active
             [TimerModel setCurrentTimingIntervalType:ShortPause];
-            return 60 * [TimerModel shortPauseTime];
+            return [TimerModel shortPauseTime];
             break;
         case ShortPause:
             //TODO: triger notification if app not active
             [TimerModel setCurrentTimingIntervalType:LongPause];
-            return 60 * [TimerModel longPauseTime];
+            return [TimerModel longPauseTime];
             break;
         case LongPause:
             //TODO: triger notification if app not active
             [TimerModel setCurrentTimingIntervalType:WorkingTime];
-            return 60 * [TimerModel workingTime];
+            return [TimerModel workingTime];
             break;
         default:
             return 0;

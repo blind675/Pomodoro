@@ -28,16 +28,15 @@ static IntervalType intervalType;
 
 // TODO: unhardcode
 +(unsigned short)workingTime{
-    return 1;
-//    return 25;
+    return 1500; // = 25 min
 }
+
 +(unsigned short)shortPauseTime{
-    return 2;
-//    return 5;
+    return 300; // = 5 min
 }
+
 +(unsigned short)longPauseTime{
-    return 3;
-//    return 15;
+    return 900; // = 15 min
 }
 
 #pragma mark - Tools

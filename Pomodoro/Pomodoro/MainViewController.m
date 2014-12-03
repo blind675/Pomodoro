@@ -28,7 +28,7 @@
     // Do any additional setup after loading the view.
     [TimerModel setCurrentTimerState:TimerStop];
     // reset the display
-    self.timeLabel.text = [TimerModel stringTimeFormatForValue:[TimerModel workingTime] * 60];
+    self.timeLabel.text = [TimerModel stringTimeFormatForValue:[TimerModel workingTime]];
     
 }
 
@@ -134,7 +134,7 @@
             [UIView commitAnimations];
             
             // reset the display
-            self.timeLabel.text = [TimerModel stringTimeFormatForValue:[TimerModel workingTime] * 60];
+            self.timeLabel.text = [TimerModel stringTimeFormatForValue:[TimerModel workingTime]];
             
             break;
             
