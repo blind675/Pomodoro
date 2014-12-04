@@ -26,17 +26,37 @@ static IntervalType intervalType;
     intervalType = newType;
 }
 
-// TODO: unhardcode
 +(unsigned short)workingTime{
-    return 1500; // = 25 min
+    
+    unsigned short value = (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kWorkingTimeKey];
+    if (value == 0) {
+        // 1500 = 25 min
+        return 1500;
+    } else {
+        return value;
+    }
 }
 
 +(unsigned short)shortPauseTime{
-    return 300; // = 5 min
+    
+    unsigned short value = (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kShortPauseTimeKey];
+    if (value == 0) {
+        //  300 =  5 min
+        return 300;
+    } else {
+        return value;
+    }
 }
 
 +(unsigned short)longPauseTime{
-    return 900; // = 15 min
+    
+    unsigned short value = (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kLongPauseTimeKey];
+    if (value == 0) {
+        //  900 = 15 min
+        return 900;
+    } else {
+        return value;
+    }
 }
 
 #pragma mark - Tools

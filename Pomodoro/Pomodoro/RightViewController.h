@@ -16,4 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *shortPauseTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *longPauseTimeLabel;
 
+@property (weak, nonatomic) IBOutlet UISlider *workingTimeSlider;
+@property (weak, nonatomic) IBOutlet UISlider *shortTimerSlider;
+@property (weak, nonatomic) IBOutlet UISlider *longTimerSlider;
+
 @end

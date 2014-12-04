@@ -30,6 +30,9 @@
     // reset the display
     self.timeLabel.text = [TimerModel stringTimeFormatForValue:[TimerModel workingTime]];
     
+    NSLog(@"working time:%hd",[TimerModel workingTime]);
+    NSLog(@"short time:%hd",[TimerModel shortPauseTime]);
+    NSLog(@"long time:%hd",[TimerModel longPauseTime]);
 }
 
 - (void)didReceiveMemoryWarning {
