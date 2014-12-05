@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define kWorkingTimeKey @"workingTimeKey"
-#define kShortPauseTimeKey @"shortPauseTimeKey"
-#define kLongPauseTimeKey @"longPauseTimeKey"
-
 @interface TimerModel : NSObject
 
 typedef enum {

@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "TimerModel.h"
 #import "TimerManager.h"
+#import "Constants.h"
 
 @interface MainViewController (){
     unsigned short countDownValue;
@@ -33,6 +34,13 @@
     NSLog(@"working time:%hd",[TimerModel workingTime]);
     NSLog(@"short time:%hd",[TimerModel shortPauseTime]);
     NSLog(@"long time:%hd",[TimerModel longPauseTime]);
+    
+    // just like pressing the stop button
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(stopButtonPressed:)
+                                                 name:kResetTimersDuration
+                                               object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -175,6 +183,14 @@
     
     countDownValue--;
     self.timeLabel.text = [TimerModel stringTimeFormatForValue:countDownValue];
+}
+
+- (void) dealloc
+{
+    // If you don't remove yourself as an observer, the Notification Center
+    // will continue to try and send notification objects to the deallocated
+    // object.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*

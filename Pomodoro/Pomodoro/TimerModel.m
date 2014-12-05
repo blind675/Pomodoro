@@ -7,6 +7,7 @@
 //
 
 #import "TimerModel.h"
+#import "Constants.h"
 
 @implementation TimerModel
 

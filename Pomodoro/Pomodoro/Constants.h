@@ -9,4 +9,10 @@
 #ifndef Pomodoro_Constants_h
 #define Pomodoro_Constants_h
 
+#define kResetTimersDuration @"resetTimersDuration"
+
+#define kWorkingTimeKey @"workingTimeKey"
+#define kShortPauseTimeKey @"shortPauseTimeKey"
+#define kLongPauseTimeKey @"longPauseTimeKey"
+
 #endif

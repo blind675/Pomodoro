@@ -8,6 +8,7 @@
 
 #import "RightViewController.h"
 #import "TimerModel.h"
+#import "Constants.h"
 
 @interface RightViewController ()
 
@@ -32,6 +33,10 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
+    [self updateAllLabels];
+}
+
+-(void)updateAllLabels{
     
     self.workingTimeLabel.text = [TimerModel stringTimeFormatForValue:[TimerModel workingTime]];
     self.workingTimeSlider.value = (float)[TimerModel workingTime];
@@ -55,7 +60,11 @@
     [[NSUserDefaults standardUserDefaults] setInteger:(unsigned short)[((UISlider *)sender) value] forKey:kWorkingTimeKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    //TODO: reset timer
+    // if it's in the working time cicle
+    if ([TimerModel currentTimingIntervalType] == WorkingTime) {
+        // reset timer
+        [[NSNotificationCenter defaultCenter] postNotificationName:kResetTimersDuration object:self];
+    }
 }
 
 - (IBAction)shortPauseChanged:(id)sender {
@@ -66,7 +75,11 @@
     [[NSUserDefaults standardUserDefaults] setInteger:(unsigned short)[((UISlider *)sender) value] forKey:kShortPauseTimeKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    //TODO: reset timer
+    // if it's in the short pause cicle
+    if ([TimerModel currentTimingIntervalType] == ShortPause) {
+        // reset timer
+        [[NSNotificationCenter defaultCenter] postNotificationName:kResetTimersDuration object:self];
+    }
 }
 
 - (IBAction)longPauseSlider:(id)sender {
@@ -76,7 +89,11 @@
     [[NSUserDefaults standardUserDefaults] setInteger:(unsigned short)[((UISlider *)sender) value] forKey:kLongPauseTimeKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    //TODO: reset timer
+    // if it's in the long pause cicle
+    if ([TimerModel currentTimingIntervalType] == LongPause) {
+        // reset timer
+        [[NSNotificationCenter defaultCenter] postNotificationName:kResetTimersDuration object:self];
+    }
 }
 
 
@@ -90,7 +107,10 @@
     [[NSUserDefaults standardUserDefaults] setInteger:(unsigned short)900 forKey:kLongPauseTimeKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [self viewDidAppear:NO];
+    [self updateAllLabels];
+    
+    // reset timer
+    [[NSNotificationCenter defaultCenter] postNotificationName:kResetTimersDuration object:self];
 }
 
 /*
