@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C490DA3D1A32630B00B5502B /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C490DA3C1A32630B00B5502B /* RQShineLabel.m */; };
 		EB0BA98D1A17722400568214 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98C1A17722400568214 /* MainViewController.m */; };
 		EB0BA9901A17729D00568214 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98F1A17729D00568214 /* LeftViewController.m */; };
 		EB0BA9931A1772B500568214 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA9921A1772B500568214 /* RightViewController.m */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C490DA3B1A32630B00B5502B /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RQShineLabel.h; sourceTree = "<group>"; };
+		C490DA3C1A32630B00B5502B /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RQShineLabel.m; sourceTree = "<group>"; };
 		EB0BA98B1A17722400568214 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		EB0BA98C1A17722400568214 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		EB0BA98E1A17729D00568214 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
@@ -88,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C490DA371A325E5D00B5502B /* FXLib */ = {
+			isa = PBXGroup;
+			children = (
+				C490DA3B1A32630B00B5502B /* RQShineLabel.h */,
+				C490DA3C1A32630B00B5502B /* RQShineLabel.m */,
+			);
+			name = FXLib;
+			sourceTree = "<group>";
+		};
 		EB0BA9A61A17B73700568214 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +133,7 @@
 		EB8D5BBA1A13D93D002DC189 /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				C490DA371A325E5D00B5502B /* FXLib */,
 				EB0BA9A61A17B73700568214 /* Model */,
 				EB8D5BBF1A13D93D002DC189 /* AppDelegate.h */,
 				EB8D5BC01A13D93D002DC189 /* AppDelegate.m */,
@@ -277,6 +290,7 @@
 				EB0BA9A21A179D9700568214 /* DownViewController.m in Sources */,
 				EB0BA9A51A17A30F00568214 /* BaseViewController.m in Sources */,
 				EB0BA98D1A17722400568214 /* MainViewController.m in Sources */,
+				C490DA3D1A32630B00B5502B /* RQShineLabel.m in Sources */,
 				EB0BA9961A17868100568214 /* HorizontalPageViewController.m in Sources */,
 				EB8D5BC11A13D93D002DC189 /* AppDelegate.m in Sources */,
 				EB0BA9AE1A17FE9C00568214 /* TimerManager.m in Sources */,
