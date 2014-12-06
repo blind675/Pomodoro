@@ -8,10 +8,13 @@
 
 #import "HorizontalPageViewController.h"
 #import "VerticalPageViewController.h"
-#import "BaseViewController.h"
+#import "RightViewController.h"
+#import "LeftViewController.h"
 #import "Constants.h"
 
 @interface HorizontalPageViewController ()
+
+@property (strong,nonatomic) NSArray *viewControllersList;
 
 @end
 
@@ -22,17 +25,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
+    NSLog(@"Loaded   - Horizontal View Controller");
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    RightViewController* rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightView"];
+    VerticalPageViewController* verticalViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"verticalPageView"];
+    verticalViewController.horizontalViewControllerReference = self;
+    LeftViewController* leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftView"];
+    
+    self.viewControllersList = @[leftViewController,verticalViewController,rightViewController];
+    
     
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
     self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     
-    NSArray *viewControllers = @[[self viewControllerAtIndex:1]];
+    NSArray *viewControllers = @[self.viewControllersList[1]];
     
     [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
@@ -44,45 +57,28 @@
 #pragma  - UIPageViewController Methods
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     
-    NSUInteger index = [(BaseViewController *)viewController indexNumber];
-    if (index == 0) {
-        return nil;
+    if ([viewController isKindOfClass:[VerticalPageViewController class]]) {
+        // the left view contrller
+        return self.viewControllersList[0];
+    } else if ( [viewController isKindOfClass:[RightViewController class]]){
+        // the main view controller
+        return self.viewControllersList[1];
     }
-    index--;
     
-    return [self viewControllerAtIndex:index];
+    return nil;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     
-    NSUInteger index = [(BaseViewController *)viewController indexNumber];
-    index++;
-    if (index == 3) {
-        return nil;
+    if ([viewController isKindOfClass:[VerticalPageViewController class]]) {
+        // the right view contrller
+        return self.viewControllersList[2];
+    } else if ( [viewController isKindOfClass:[LeftViewController class]]){
+        // the main view controller
+        return self.viewControllersList[1];
     }
     
-    return [self viewControllerAtIndex:index];
-}
-
-- (BaseViewController *)viewControllerAtIndex:(NSUInteger)index {
-    
-    BaseViewController *childViewController;
-    
-    if (index == 0) {
-        childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftView"];
-        childViewController.indexNumber = 0;
-    } else if(index == 1){
-        VerticalPageViewController* verticalControllerReference = [self.storyboard instantiateViewControllerWithIdentifier:@"verticalPageView"];
-        verticalControllerReference.horizontalViewControllerReference = self;
-        
-        childViewController = (BaseViewController *)verticalControllerReference;
-        childViewController.indexNumber = 1;
-    } else {
-        childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightView"];
-        childViewController.indexNumber = 2;
-    }
-    
-    return childViewController;
+    return nil;
 }
 
 - (void)invalidatePageViewController {

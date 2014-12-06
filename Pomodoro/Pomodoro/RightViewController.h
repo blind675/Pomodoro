@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
 
-@interface RightViewController : BaseViewController
+@interface RightViewController : UIViewController
 
-@property (assign, nonatomic) NSInteger indexNumber;
 @property (weak, nonatomic) IBOutlet UILabel *workingTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shortPauseTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *longPauseTimeLabel;

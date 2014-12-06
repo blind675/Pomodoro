@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
 
-@interface UpViewController : BaseViewController
-
-@property (assign, nonatomic) NSInteger indexNumber;
+@interface UpViewController : UIViewController
 
 @end

@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
 
-@interface LeftViewController : BaseViewController
-
-@property (assign, nonatomic) NSInteger indexNumber;
+@interface LeftViewController : UIViewController
 
 @end

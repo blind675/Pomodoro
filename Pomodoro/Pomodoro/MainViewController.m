@@ -25,6 +25,9 @@
 @implementation MainViewController
 
 - (void)viewDidLoad {
+    
+    NSLog(@"Loaded   - Main View Controller");
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [TimerModel setCurrentTimerState:TimerStop];

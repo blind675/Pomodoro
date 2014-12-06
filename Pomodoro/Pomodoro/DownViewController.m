@@ -12,11 +12,13 @@
 
 @interface DownViewController ()
 @property (strong,nonatomic) RQShineLabel *shineDescriptionLabel;
+@property (strong,nonatomic) NSArray *aboutTextsArray;
+@property (nonatomic) BOOL didTheViewActuallyDisappear;
 @end
 
 @implementation DownViewController
 
-- (CGRect)calculateFrame {
+- (CGRect)calculateFrameForText:(NSString*)text {
 
     CGRect screenBound = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenBound.size.width - 32;
@@ -26,7 +28,7 @@
     NSStringDrawingOptions options = NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin;
     
     NSDictionary *attr = @{NSFontAttributeName: [UIFont systemFontOfSize:17]};
-    CGRect labelBounds = [kAboutDescription boundingRectWithSize:maximumLabelSize
+    CGRect labelBounds = [text boundingRectWithSize:maximumLabelSize
                                               options:options
                                            attributes:attr
                                               context:nil];
@@ -35,17 +37,25 @@
 }
 
 - (void)viewDidLoad {
+    
+    NSLog(@"Loaded   - Down View Controller");
+    
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
-    self.shineDescriptionLabel = [[RQShineLabel alloc] initWithFrame:[self calculateFrame]];
+    self.shineDescriptionLabel = [[RQShineLabel alloc] initWithFrame:[self calculateFrameForText:kAboutDescription1]];
     self.shineDescriptionLabel.numberOfLines = 0;
-    self.shineDescriptionLabel.text = kAboutDescription;
+    self.shineDescriptionLabel.text = kAboutDescription1;
     self.shineDescriptionLabel.textColor = [UIColor blackColor];
     self.shineDescriptionLabel.backgroundColor = [UIColor clearColor];
     self.shineDescriptionLabel.center = self.view.center;
     [self.view addSubview:self.shineDescriptionLabel];
     
-    [self.shineDescriptionLabel sizeToFit];
+    // populate the about array
+    self.aboutTextsArray = @[kAboutDescription7,kAboutDescription4,kAboutDescription1,kAboutDescription6,kAboutDescription3,kAboutDescription5,kAboutDescription2];
+    
+    self.didTheViewActuallyDisappear = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,11 +64,30 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.shineDescriptionLabel shine];
+    
+    // this is called for every little page view movement
+    if (self.didTheViewActuallyDisappear == YES) {
+        [super viewWillAppear:animated];
+
+        NSString *randomText = self.aboutTextsArray[arc4random_uniform(7)];
+
+        self.shineDescriptionLabel.frame = [self calculateFrameForText:randomText];
+        self.shineDescriptionLabel.center = self.view.center;
+        self.shineDescriptionLabel.text = randomText;
+    
+        self.didTheViewActuallyDisappear = NO;
+        
+        [self.shineDescriptionLabel shine];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
     [self.shineDescriptionLabel instantFade];
+    
+    self.didTheViewActuallyDisappear = YES;
+
 }
 /*
 #pragma mark - Navigation

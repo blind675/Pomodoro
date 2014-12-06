@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
 
-@interface MainViewController : BaseViewController
+@interface MainViewController : UIViewController
 
-@property (assign, nonatomic) NSInteger indexNumber;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 

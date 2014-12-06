@@ -15,6 +15,9 @@
 @implementation LeftViewController
 
 - (void)viewDidLoad {
+    
+    NSLog(@"Loaded   - Left View Controller");
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

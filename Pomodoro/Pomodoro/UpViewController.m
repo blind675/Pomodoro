@@ -15,6 +15,9 @@
 @implementation UpViewController
 
 - (void)viewDidLoad {
+    
+    NSLog(@"Loaded   - Up View Controller");
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

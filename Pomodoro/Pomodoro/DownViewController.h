@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
 
-@interface DownViewController : BaseViewController
+@interface DownViewController :UIViewController
 
-@property (assign, nonatomic) NSInteger indexNumber;
 @property (weak, nonatomic) IBOutlet UILabel *shortInfoLabel;
 
 @end

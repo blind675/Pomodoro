@@ -17,6 +17,9 @@
 @implementation RightViewController
 
 - (void)viewDidLoad {
+    
+    NSLog(@"Loaded   - Right View Controller");
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     

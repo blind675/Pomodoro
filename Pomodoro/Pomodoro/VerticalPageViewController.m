@@ -7,10 +7,14 @@
 //
 
 #import "VerticalPageViewController.h"
-#import "BaseViewController.h"
 #import "Constants.h"
+#import "MainViewController.h"
+#import "UpViewController.h"
+#import "DownViewController.h"
 
 @interface VerticalPageViewController ()
+
+@property (strong,nonatomic) NSArray *viewControllersList;
 
 @end
 
@@ -23,8 +27,18 @@
 
 - (void)viewDidLoad
 {
+    
+    NSLog(@"Loaded   - Vertical View Controller");
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // set the view controllers array
+    UpViewController *upViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"upView"];
+    MainViewController *mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"mainView"];
+    DownViewController *downViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"downView"];
+   
+    self.viewControllersList = @[upViewController,mainViewController,downViewController];
     
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationVertical options:nil];
     
@@ -32,8 +46,8 @@
     self.pageController.delegate = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     
-    NSArray *viewControllers = @[[self viewControllerAtIndex:4]];
-    
+    NSArray *viewControllers = @[self.viewControllersList[1]];
+
     [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     [self addChildViewController:self.pageController];
@@ -43,49 +57,35 @@
 #pragma  - UIPageViewController Methods
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     
-    NSUInteger index = [(BaseViewController *)viewController indexNumber];
-    if (index == 3) {
-        return nil;
+    if ([viewController isKindOfClass:[MainViewController class]]) {
+        // the up view contrller
+        return self.viewControllersList[0];
+    } else if ( [viewController isKindOfClass:[DownViewController class]]){
+        // the main view controller
+        return self.viewControllersList[1];
     }
-    index--;
     
-    return [self viewControllerAtIndex:index];
+    return nil;
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     
-    NSUInteger index = [(BaseViewController *)viewController indexNumber];
-    index++;
-    if (index == 6) {
-        return nil;
+    if ([viewController isKindOfClass:[MainViewController class]]) {
+        // the down view contrller
+        return self.viewControllersList[2];
+    } else if ( [viewController isKindOfClass:[UpViewController class]]){
+        // the main view controller
+        return self.viewControllersList[1];
     }
     
-    return [self viewControllerAtIndex:index];
-}
-
-- (BaseViewController *)viewControllerAtIndex:(NSUInteger)index {
-    
-    BaseViewController *childViewController;
-    
-    if (index == 3) {
-        childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"upView"];
-        childViewController.indexNumber = 3;
-    } else if(index == 4){
-        childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"mainView"];
-        childViewController.indexNumber = 4;
-    } else {
-        childViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"downView"];
-        childViewController.indexNumber = 5;
-    }
-    
-    return childViewController;
+    return nil;
 }
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {
     UIViewController *vc = [pageViewController.viewControllers lastObject];
  
-    if ([(BaseViewController *)vc indexNumber] == 4 ) {
+    if ([vc isKindOfClass:[MainViewController class]]) {
         [self.horizontalViewControllerReference validatePageViewController];
     } else {
         [self.horizontalViewControllerReference invalidatePageViewController];

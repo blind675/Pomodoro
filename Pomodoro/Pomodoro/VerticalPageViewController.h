@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
 #import "HorizontalPageViewController.H"
 
-@interface VerticalPageViewController : BaseViewController <UIPageViewControllerDataSource,UIPageViewControllerDelegate>
+@interface VerticalPageViewController : UIViewController <UIPageViewControllerDataSource,UIPageViewControllerDelegate>
 
 @property (strong, nonatomic) UIPageViewController *pageController;
 @property (assign, nonatomic) NSInteger indexNumber;
