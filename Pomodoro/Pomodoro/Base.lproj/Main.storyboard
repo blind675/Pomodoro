@@ -52,19 +52,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Up View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWs-zT-MZD">
-                                <rect key="frame" x="168" y="389" width="64" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6n-MH-bGe" userLabel="BannerView" customClass="DFPBannerView">
+                                <rect key="frame" x="16" y="530" width="568" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Y5r-Kz-ssc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="l6n-MH-bGe" secondAttribute="trailing" constant="16" id="1Wu-7n-Eii"/>
+                            <constraint firstItem="24d-tw-pnq" firstAttribute="top" secondItem="l6n-MH-bGe" secondAttribute="bottom" constant="20" id="LS9-g6-eOh"/>
+                            <constraint firstItem="l6n-MH-bGe" firstAttribute="leading" secondItem="Dfg-BH-PF0" secondAttribute="leading" constant="16" id="Ovj-mb-Tdh"/>
+                            <constraint firstAttribute="centerX" secondItem="l6n-MH-bGe" secondAttribute="centerX" id="zLn-WR-gQf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bannerView" destination="l6n-MH-bGe" id="5dg-S5-jQZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icj-mU-Z8i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1248" y="-298.49999999999983"/>
+            <point key="canvasLocation" x="-1248" y="-299"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="qel-rM-sB8">

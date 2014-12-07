@@ -7,6 +7,8 @@
 //
 
 #import "UpViewController.h"
+#import "DFPBannerView.h"
+#import "GADRequest.h"
 
 @interface UpViewController ()
 
@@ -20,6 +22,11 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.bannerView.adUnitID = @"ca-app-pub-4761990429695317/6628430382";
+    self.bannerView.rootViewController = self;
+    
+    [self.bannerView loadRequest:[GADRequest request]];
 }
 
 - (void)didReceiveMemoryWarning {

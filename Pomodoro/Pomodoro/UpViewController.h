@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class DFPBannerView;
+
 @interface UpViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet DFPBannerView *bannerView;
 
 @end
