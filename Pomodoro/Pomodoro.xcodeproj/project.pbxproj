@@ -19,6 +19,14 @@
 		C4339B1D1A34C8DA00FE7EA9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4339B0C1A34C87800FE7EA9 /* CoreTelephony.framework */; };
 		C4339B1E1A34C8DA00FE7EA9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4339B0A1A34C87100FE7EA9 /* CoreGraphics.framework */; };
 		C4339B1F1A34C8DA00FE7EA9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4339B081A34C86900FE7EA9 /* AVFoundation.framework */; };
+		C450D48F1A38C788000DFFE5 /* tomato-contur@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C450D4891A38C788000DFFE5 /* tomato-contur@2x.png */; };
+		C450D4901A38C788000DFFE5 /* tomato-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C450D48A1A38C788000DFFE5 /* tomato-blue@2x.png */; };
+		C450D4911A38C788000DFFE5 /* tomato-dark-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C450D48B1A38C788000DFFE5 /* tomato-dark-green@2x.png */; };
+		C450D4921A38C788000DFFE5 /* tomato-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C450D48C1A38C788000DFFE5 /* tomato-green@2x.png */; };
+		C450D4931A38C788000DFFE5 /* tomato-orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C450D48D1A38C788000DFFE5 /* tomato-orange@2x.png */; };
+		C450D4941A38C788000DFFE5 /* tomato-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C450D48E1A38C788000DFFE5 /* tomato-red@2x.png */; };
+		C450D4971A38CAD5000DFFE5 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C450D4961A38CAD5000DFFE5 /* CollectionViewCell.m */; };
+		C450D49A1A38D698000DFFE5 /* StatisticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C450D4991A38D698000DFFE5 /* StatisticsModel.m */; };
 		C490DA3D1A32630B00B5502B /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C490DA3C1A32630B00B5502B /* RQShineLabel.m */; };
 		EB0BA98D1A17722400568214 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98C1A17722400568214 /* MainViewController.m */; };
 		EB0BA9901A17729D00568214 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98F1A17729D00568214 /* LeftViewController.m */; };
@@ -87,6 +95,16 @@
 		C4339B121A34C89F00FE7EA9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C4339B141A34C8A700FE7EA9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C4339B161A34C8B600FE7EA9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C450D4891A38C788000DFFE5 /* tomato-contur@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tomato-contur@2x.png"; sourceTree = "<group>"; };
+		C450D48A1A38C788000DFFE5 /* tomato-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tomato-blue@2x.png"; sourceTree = "<group>"; };
+		C450D48B1A38C788000DFFE5 /* tomato-dark-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tomato-dark-green@2x.png"; sourceTree = "<group>"; };
+		C450D48C1A38C788000DFFE5 /* tomato-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tomato-green@2x.png"; sourceTree = "<group>"; };
+		C450D48D1A38C788000DFFE5 /* tomato-orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tomato-orange@2x.png"; sourceTree = "<group>"; };
+		C450D48E1A38C788000DFFE5 /* tomato-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tomato-red@2x.png"; sourceTree = "<group>"; };
+		C450D4951A38CAD5000DFFE5 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		C450D4961A38CAD5000DFFE5 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		C450D4981A38D698000DFFE5 /* StatisticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsModel.h; sourceTree = "<group>"; };
+		C450D4991A38D698000DFFE5 /* StatisticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsModel.m; sourceTree = "<group>"; };
 		C490DA3B1A32630B00B5502B /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RQShineLabel.h; path = Libs/FXLib/RQShine/RQShineLabel.h; sourceTree = "<group>"; };
 		C490DA3C1A32630B00B5502B /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RQShineLabel.m; path = Libs/FXLib/RQShine/RQShineLabel.m; sourceTree = "<group>"; };
 		EB0BA98B1A17722400568214 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -244,6 +262,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C450D4881A38C788000DFFE5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C450D4891A38C788000DFFE5 /* tomato-contur@2x.png */,
+				C450D48A1A38C788000DFFE5 /* tomato-blue@2x.png */,
+				C450D48B1A38C788000DFFE5 /* tomato-dark-green@2x.png */,
+				C450D48C1A38C788000DFFE5 /* tomato-green@2x.png */,
+				C450D48D1A38C788000DFFE5 /* tomato-orange@2x.png */,
+				C450D48E1A38C788000DFFE5 /* tomato-red@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C490DA371A325E5D00B5502B /* FXLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +293,8 @@
 				EB0BA9AA1A17BE7700568214 /* TimerModel.m */,
 				EB0BA9AC1A17FE9C00568214 /* TimerManager.h */,
 				EB0BA9AD1A17FE9C00568214 /* TimerManager.m */,
+				C450D4981A38D698000DFFE5 /* StatisticsModel.h */,
+				C450D4991A38D698000DFFE5 /* StatisticsModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -289,9 +322,12 @@
 			children = (
 				C4339B031A34C82F00FE7EA9 /* Frameworks */,
 				C4339ADC1A34C72600FE7EA9 /* Libs */,
+				C450D4881A38C788000DFFE5 /* Resources */,
 				EB0BA9A61A17B73700568214 /* Model */,
 				EB8D5BBF1A13D93D002DC189 /* AppDelegate.h */,
 				EB8D5BC01A13D93D002DC189 /* AppDelegate.m */,
+				C450D4951A38CAD5000DFFE5 /* CollectionViewCell.h */,
+				C450D4961A38CAD5000DFFE5 /* CollectionViewCell.m */,
 				EB0BA98E1A17729D00568214 /* LeftViewController.h */,
 				EB0BA98F1A17729D00568214 /* LeftViewController.m */,
 				EB0BA9911A1772B500568214 /* RightViewController.h */,
@@ -423,7 +459,13 @@
 				EB8D5BC71A13D93D002DC189 /* Main.storyboard in Resources */,
 				EB8D5BCC1A13D93D002DC189 /* LaunchScreen.xib in Resources */,
 				C4339B001A34C7E900FE7EA9 /* README.txt in Resources */,
+				C450D4931A38C788000DFFE5 /* tomato-orange@2x.png in Resources */,
+				C450D4901A38C788000DFFE5 /* tomato-blue@2x.png in Resources */,
 				EB8D5BC91A13D93D002DC189 /* Images.xcassets in Resources */,
+				C450D4921A38C788000DFFE5 /* tomato-green@2x.png in Resources */,
+				C450D4941A38C788000DFFE5 /* tomato-red@2x.png in Resources */,
+				C450D4911A38C788000DFFE5 /* tomato-dark-green@2x.png in Resources */,
+				C450D48F1A38C788000DFFE5 /* tomato-contur@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,11 +489,13 @@
 				EB0BA9961A17868100568214 /* HorizontalPageViewController.m in Sources */,
 				EB8D5BC11A13D93D002DC189 /* AppDelegate.m in Sources */,
 				EB0BA9AE1A17FE9C00568214 /* TimerManager.m in Sources */,
+				C450D49A1A38D698000DFFE5 /* StatisticsModel.m in Sources */,
 				EB0BA99F1A179D7A00568214 /* UpViewController.m in Sources */,
 				EB0BA9901A17729D00568214 /* LeftViewController.m in Sources */,
 				EB0BA99C1A179C7C00568214 /* VerticalPageViewController.m in Sources */,
 				EB0BA9931A1772B500568214 /* RightViewController.m in Sources */,
 				EB0BA9AB1A17BE7700568214 /* TimerModel.m in Sources */,
+				C450D4971A38CAD5000DFFE5 /* CollectionViewCell.m in Sources */,
 				EB8D5BBE1A13D93D002DC189 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

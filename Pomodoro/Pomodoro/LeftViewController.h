@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LeftViewController : UIViewController
+@interface LeftViewController : UIViewController <UICollectionViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (weak, nonatomic) IBOutlet UILabel *yesterdayStats;
+@property (weak, nonatomic) IBOutlet UILabel *maxStats;
+@property (weak, nonatomic) IBOutlet UILabel *avregeStats;
 
 @end

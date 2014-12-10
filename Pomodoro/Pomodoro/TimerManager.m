@@ -8,6 +8,7 @@
 
 #import "TimerManager.h"
 #import "TimerModel.h"
+#import "StatisticsModel.h"
 
 @interface TimerManager() {
     unsigned short remainingTime;
@@ -57,27 +58,23 @@
 
 -(unsigned short)moveToTheNextIntervalType {
     
-    switch ([TimerModel currentTimingIntervalType]) {
-        case WorkingTime:
-            //TODO: triger notification if app not active
-            [TimerModel setCurrentTimingIntervalType:ShortPause];
-            return [TimerModel shortPauseTime];
-            break;
-        case ShortPause:
-            //TODO: triger notification if app not active
+    if ([TimerModel currentTimingIntervalType] == WorkingTime) {
+        //TODO: triger notification if app not active
+        [StatisticsModel incrementTodaysPomodoro];
+        
+        if (!([StatisticsModel todaysPomodoro] % 4)) {
             [TimerModel setCurrentTimingIntervalType:LongPause];
             return [TimerModel longPauseTime];
-            break;
-        case LongPause:
-            //TODO: triger notification if app not active
-            [TimerModel setCurrentTimingIntervalType:WorkingTime];
-            return [TimerModel workingTime];
-            break;
-        default:
-            return 0;
-            break;
+        } else {
+            [TimerModel setCurrentTimingIntervalType:ShortPause];
+            return [TimerModel shortPauseTime];
+        }
+    } else {
+        //TODO: triger notification if app not active
+        [TimerModel setCurrentTimingIntervalType:WorkingTime];
+        return [TimerModel workingTime];
     }
-
+    
 }
 
 @end

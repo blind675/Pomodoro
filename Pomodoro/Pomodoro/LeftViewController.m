@@ -7,6 +7,8 @@
 //
 
 #import "LeftViewController.h"
+#import "CollectionViewCell.h"
+#import "StatisticsModel.h"
 
 @interface LeftViewController ()
 
@@ -27,6 +29,49 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.yesterdayStats.text = [NSString stringWithFormat:@"%hu", [StatisticsModel yesterdayPomodoro]];
+    self.maxStats.text = [NSString stringWithFormat:@"%hu", [StatisticsModel maxPomodoro]];
+    self.avregeStats.text = [NSString stringWithFormat:@"%hu", [StatisticsModel last7DaysAvg]];
+    
+    [self.collectionView reloadData];
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 32;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CollectionViewCell *tomatoCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"tomatoCel" forIndexPath:indexPath];
+    
+    if (indexPath.item < 10) {
+        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-red.png"];
+    } else if (indexPath.item <15) {
+        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-orange.png"];
+    } else if (indexPath.item <20) {
+        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-green.png"];
+    } else if (indexPath.item <25) {
+        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-dark-green.png"];
+    } else if (indexPath.item <30) {
+        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-blue.png"];
+    } else {
+        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-contur.png"];
+    }
+
+    if ([StatisticsModel todaysPomodoro] > indexPath.item) {
+        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-orange.png"];
+    }
+    return tomatoCell;
+}
 /*
 #pragma mark - Navigation
 
