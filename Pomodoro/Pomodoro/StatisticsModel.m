@@ -8,6 +8,7 @@
 
 #import "StatisticsModel.h"
 #import "Constants.h"
+#import "NSDate+Yesterday.h"
 
 @implementation StatisticsModel
 
@@ -68,19 +69,11 @@ static unsigned short lastDaysAvg;
     
     NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:kTodayFirstOpeningTimestampKey];
     
-    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay ;
-    NSCalendar* calendar = [NSCalendar currentCalendar];
+    // get todays value
+    unsigned short todaysPomodoro = (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kTodaysPomodoroKey];
     
-    NSDateComponents* components = [calendar components:flags fromDate:[NSDate new]];
-    NSDate* todayDate = [calendar dateFromComponents:components];
-
-    NSLog(@" - date:%@ - today:%@",date ,todayDate);
-    
-    if ([date compare:todayDate] == NSOrderedDescending) {
+    if ([date isYesterday]) {
         NSLog(@" the day changed");
-        
-        // get todays value
-        unsigned short todaysPomodoro = (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kTodaysPomodoroKey];
         
         // set yesterday value
         [[NSUserDefaults standardUserDefaults] setInteger:todaysPomodoro forKey:kYesterdayPomodoroKey];
@@ -89,22 +82,41 @@ static unsigned short lastDaysAvg;
         NSArray *last7DaysValues = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:kLastDaysKey]];
         
         if (last7DaysValues) {
-            //TODO: left here;
             NSMutableArray *localArray;
-            //= [[NSMutableArray alloc] ];
+            if ([last7DaysValues count] < 5) {
+                localArray = [[NSMutableArray alloc] initWithArray:last7DaysValues];
+                [localArray addObject:[NSNumber numberWithUnsignedShort:todaysPomodoro]];
+            } else {
+                localArray = [[NSMutableArray alloc] init];
+                for (int i = 1; i < last7DaysValues.count; i++) {
+                    [localArray addObject:last7DaysValues[i]];
+                }
+                [localArray addObject:[NSNumber numberWithUnsignedShort:todaysPomodoro]];
+            }
+            
+            last7DaysValues = [localArray copy];
             
         } else {
             last7DaysValues = @[[NSNumber numberWithUnsignedShort:todaysPomodoro]];
-            // save the array
-            [[NSUserDefaults standardUserDefaults] setObject: [NSKeyedArchiver archivedDataWithRootObject:last7DaysValues] forKey:kLastDaysKey];
         }
         
+        // save the array
+        [[NSUserDefaults standardUserDefaults] setObject: [NSKeyedArchiver archivedDataWithRootObject:last7DaysValues] forKey:kLastDaysKey];
+        
+        // reset today counter
+        [self resetTodaysPomodoro];
+        
         // set the new date
-        [[NSUserDefaults standardUserDefaults] setObject:todayDate forKey:kTodayFirstOpeningTimestampKey];
-    } else {
-        [[NSUserDefaults standardUserDefaults] setObject:todayDate forKey:kTodayFirstOpeningTimestampKey];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate new] forKey:kTodayFirstOpeningTimestampKey];
+    } else if ( [date isMoreThanOneDayInThePast]) {
+
+        NSArray *last7DaysValues = @[[NSNumber numberWithUnsignedShort:todaysPomodoro]];
+        
+        // save the array
+        [[NSUserDefaults standardUserDefaults] setObject: [NSKeyedArchiver archivedDataWithRootObject:last7DaysValues] forKey:kLastDaysKey];
     }
     
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate new] forKey:kTodayFirstOpeningTimestampKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

@@ -28,6 +28,7 @@
 		C450D4971A38CAD5000DFFE5 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C450D4961A38CAD5000DFFE5 /* CollectionViewCell.m */; };
 		C450D49A1A38D698000DFFE5 /* StatisticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C450D4991A38D698000DFFE5 /* StatisticsModel.m */; };
 		C490DA3D1A32630B00B5502B /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C490DA3C1A32630B00B5502B /* RQShineLabel.m */; };
+		C4C6B0711A3A219A007873BC /* NSDate+Yesterday.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0701A3A219A007873BC /* NSDate+Yesterday.m */; };
 		EB0BA98D1A17722400568214 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98C1A17722400568214 /* MainViewController.m */; };
 		EB0BA9901A17729D00568214 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98F1A17729D00568214 /* LeftViewController.m */; };
 		EB0BA9931A1772B500568214 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA9921A1772B500568214 /* RightViewController.m */; };
@@ -107,6 +108,8 @@
 		C450D4991A38D698000DFFE5 /* StatisticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsModel.m; sourceTree = "<group>"; };
 		C490DA3B1A32630B00B5502B /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RQShineLabel.h; path = Libs/FXLib/RQShine/RQShineLabel.h; sourceTree = "<group>"; };
 		C490DA3C1A32630B00B5502B /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RQShineLabel.m; path = Libs/FXLib/RQShine/RQShineLabel.m; sourceTree = "<group>"; };
+		C4C6B06F1A3A219A007873BC /* NSDate+Yesterday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Yesterday.h"; sourceTree = "<group>"; };
+		C4C6B0701A3A219A007873BC /* NSDate+Yesterday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Yesterday.m"; sourceTree = "<group>"; };
 		EB0BA98B1A17722400568214 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		EB0BA98C1A17722400568214 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		EB0BA98E1A17729D00568214 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
@@ -171,6 +174,7 @@
 		C4339ADC1A34C72600FE7EA9 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				C4C6B06E1A3A2108007873BC /* DateExtra */,
 				C4339ADD1A34C7E900FE7EA9 /* GoogleMobileAdsSdkiOS-6.12.2 */,
 				C490DA371A325E5D00B5502B /* FXLib */,
 			);
@@ -283,6 +287,15 @@
 			);
 			name = FXLib;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		C4C6B06E1A3A2108007873BC /* DateExtra */ = {
+			isa = PBXGroup;
+			children = (
+				C4C6B06F1A3A219A007873BC /* NSDate+Yesterday.h */,
+				C4C6B0701A3A219A007873BC /* NSDate+Yesterday.m */,
+			);
+			path = DateExtra;
 			sourceTree = "<group>";
 		};
 		EB0BA9A61A17B73700568214 /* Model */ = {
@@ -487,6 +500,7 @@
 				EB0BA98D1A17722400568214 /* MainViewController.m in Sources */,
 				C490DA3D1A32630B00B5502B /* RQShineLabel.m in Sources */,
 				EB0BA9961A17868100568214 /* HorizontalPageViewController.m in Sources */,
+				C4C6B0711A3A219A007873BC /* NSDate+Yesterday.m in Sources */,
 				EB8D5BC11A13D93D002DC189 /* AppDelegate.m in Sources */,
 				EB0BA9AE1A17FE9C00568214 /* TimerManager.m in Sources */,
 				C450D49A1A38D698000DFFE5 /* StatisticsModel.m in Sources */,
