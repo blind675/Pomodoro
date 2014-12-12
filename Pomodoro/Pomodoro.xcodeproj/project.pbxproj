@@ -29,6 +29,8 @@
 		C450D49A1A38D698000DFFE5 /* StatisticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C450D4991A38D698000DFFE5 /* StatisticsModel.m */; };
 		C490DA3D1A32630B00B5502B /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C490DA3C1A32630B00B5502B /* RQShineLabel.m */; };
 		C4C6B0711A3A219A007873BC /* NSDate+Yesterday.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0701A3A219A007873BC /* NSDate+Yesterday.m */; };
+		C4C6B0731A3A2E65007873BC /* DateExtraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0721A3A2E65007873BC /* DateExtraTests.m */; };
+		C4C6B0751A3A40AB007873BC /* StatisticsModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0741A3A40AB007873BC /* StatisticsModelTests.m */; };
 		EB0BA98D1A17722400568214 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98C1A17722400568214 /* MainViewController.m */; };
 		EB0BA9901A17729D00568214 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98F1A17729D00568214 /* LeftViewController.m */; };
 		EB0BA9931A1772B500568214 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA9921A1772B500568214 /* RightViewController.m */; };
@@ -110,6 +112,8 @@
 		C490DA3C1A32630B00B5502B /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RQShineLabel.m; path = Libs/FXLib/RQShine/RQShineLabel.m; sourceTree = "<group>"; };
 		C4C6B06F1A3A219A007873BC /* NSDate+Yesterday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Yesterday.h"; sourceTree = "<group>"; };
 		C4C6B0701A3A219A007873BC /* NSDate+Yesterday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Yesterday.m"; sourceTree = "<group>"; };
+		C4C6B0721A3A2E65007873BC /* DateExtraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateExtraTests.m; sourceTree = "<group>"; };
+		C4C6B0741A3A40AB007873BC /* StatisticsModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsModelTests.m; sourceTree = "<group>"; };
 		EB0BA98B1A17722400568214 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		EB0BA98C1A17722400568214 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		EB0BA98E1A17729D00568214 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
@@ -376,6 +380,8 @@
 			isa = PBXGroup;
 			children = (
 				EB8D5BD71A13D93D002DC189 /* PomodoroTests.m */,
+				C4C6B0721A3A2E65007873BC /* DateExtraTests.m */,
+				C4C6B0741A3A40AB007873BC /* StatisticsModelTests.m */,
 				EB8D5BD51A13D93D002DC189 /* Supporting Files */,
 			);
 			path = PomodoroTests;
@@ -518,6 +524,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4C6B0731A3A2E65007873BC /* DateExtraTests.m in Sources */,
+				C4C6B0751A3A40AB007873BC /* StatisticsModelTests.m in Sources */,
 				EB8D5BD81A13D93D002DC189 /* PomodoroTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

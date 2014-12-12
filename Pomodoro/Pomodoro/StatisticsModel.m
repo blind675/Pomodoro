@@ -107,7 +107,7 @@ static unsigned short lastDaysAvg;
         [self resetTodaysPomodoro];
         
         // set the new date
-        [[NSUserDefaults standardUserDefaults] setObject:[NSDate new] forKey:kTodayFirstOpeningTimestampKey];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:kTodayFirstOpeningTimestampKey];
     } else if ( [date isMoreThanOneDayInThePast]) {
 
         NSArray *last7DaysValues = @[[NSNumber numberWithUnsignedShort:todaysPomodoro]];
@@ -116,7 +116,7 @@ static unsigned short lastDaysAvg;
         [[NSUserDefaults standardUserDefaults] setObject: [NSKeyedArchiver archivedDataWithRootObject:last7DaysValues] forKey:kLastDaysKey];
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate new] forKey:kTodayFirstOpeningTimestampKey];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:kTodayFirstOpeningTimestampKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
