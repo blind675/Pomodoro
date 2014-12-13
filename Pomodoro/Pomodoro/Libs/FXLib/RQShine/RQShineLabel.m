@@ -61,7 +61,7 @@
 - (void)commonInit
 {
   // Defaults
-  _shineDuration   = 2.5;
+  _shineDuration   = 1.5;
   _fadeoutDuration = 2.5;
   _autoStart       = NO;
   _fadedOut        = YES;

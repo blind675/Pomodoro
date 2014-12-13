@@ -313,7 +313,7 @@
 				C450D4981A38D698000DFFE5 /* StatisticsModel.h */,
 				C450D4991A38D698000DFFE5 /* StatisticsModel.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EB8D5BAF1A13D93D002DC189 = {

@@ -69,10 +69,15 @@ static IntervalType intervalType;
 
     // devide the countDownValue by 60 but to get the quotient and remainder
     // but do it objective c way
-    div_t divresult;
-    divresult = div (countDownValue,60);
+    div_t divResult;
+    divResult = div (countDownValue,60);
 
-    return [NSString stringWithFormat:@"%02d:%02d",divresult.quot,divresult.rem];
+    if (divResult.quot > 59) {
+        div_t secondResult = div (divResult.quot,60);
+        return [NSString stringWithFormat:@"%d:%02d:%02d",secondResult.quot,secondResult.rem,divResult.rem];
+    } else {
+        return [NSString stringWithFormat:@"%02d:%02d",divResult.quot,divResult.rem];
+    }
 }
 
 @end
