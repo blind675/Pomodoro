@@ -34,7 +34,7 @@
     
     self.yesterdayStats.text = [NSString stringWithFormat:@"%hu", [StatisticsModel yesterdayPomodoro]];
     self.maxStats.text = [NSString stringWithFormat:@"%hu", [StatisticsModel maxPomodoro]];
-    self.avregeStats.text = [NSString stringWithFormat:@"%hu", [StatisticsModel last7DaysAvg]];
+    self.avregeStats.text = [NSString stringWithFormat:@"%hu", [StatisticsModel averagePomodoro]];
     
     [self.collectionView reloadData];
 }

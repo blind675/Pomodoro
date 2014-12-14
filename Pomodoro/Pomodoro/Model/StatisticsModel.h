@@ -14,7 +14,7 @@
 +(void)incrementTodaysPomodoro;
 +(void)resetTodaysPomodoro;
 
-+(unsigned short)last7DaysAvg;
++(unsigned short)averagePomodoro;
 
 +(unsigned short)maxPomodoro;
 
@@ -23,7 +23,7 @@
 +(void)changeDayIfNeede;
 
 // used for tests
-+(NSDate *)todayTestValue;
-+(void)setTodayTestValue:(NSDate *)date ;
++(BOOL)isYesterdayTestValue;
++(void)setIsYesterdayTestValue:(BOOL)value;
 
 @end

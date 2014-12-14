@@ -15,20 +15,17 @@
 static unsigned short lastDaysAvg;
 
 // this is used for tests
-static NSDate *todayTestValue;
+static BOOL isYesterdayTestValue;
 
-+(NSDate *)todayTestValue {
-
-    if (todayTestValue) {
-        return todayTestValue;
-    } else {
-        return [NSDate date];
-    }
++(BOOL)isYesterdayTestValue {
+    return isYesterdayTestValue;
 }
 
-+(void)setTodayTestValue:(NSDate *)date{
-    todayTestValue = date;
++(void)setIsYesterdayTestValue:(BOOL)value {
+    isYesterdayTestValue = value;
 }
+
+// this is where the test part ends
 
 +(unsigned short)todaysPomodoro {
     return (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kTodaysPomodoroKey];
@@ -53,10 +50,10 @@ static NSDate *todayTestValue;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+(unsigned short)last7DaysAvg {
++(unsigned short)averagePomodoro {
     NSArray *last7DaysValues = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:kLastDaysKey]] ;
     
-    int numberOfWorkedDays=1;
+    int numberOfWorkedDays=0;
     int sume = 0;
     
     if (last7DaysValues) {
@@ -64,12 +61,12 @@ static NSDate *todayTestValue;
             numberOfWorkedDays++;
             sume += dayValue.shortValue;
         }
+        
+        return lastDaysAvg = sume / numberOfWorkedDays ;
+    } else {
+        return 0;
     }
     
-    sume += (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kTodaysPomodoroKey];;
-    lastDaysAvg = sume / numberOfWorkedDays ;
-    
-    return lastDaysAvg;
 }
 
 +(unsigned short)maxPomodoro {
@@ -88,7 +85,7 @@ static NSDate *todayTestValue;
     // get todays value
     unsigned short todaysPomodoro = (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kTodaysPomodoroKey];
     
-    if ([date isYesterday]) {
+    if (isYesterdayTestValue || [date isYesterday]) {
         NSLog(@" the day changed");
         
         // set yesterday value
@@ -98,20 +95,9 @@ static NSDate *todayTestValue;
         NSArray *last7DaysValues = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:kLastDaysKey]];
         
         if (last7DaysValues) {
-            NSMutableArray *localArray;
-            if ([last7DaysValues count] < 5) {
-                localArray = [[NSMutableArray alloc] initWithArray:last7DaysValues];
-                [localArray addObject:[NSNumber numberWithUnsignedShort:todaysPomodoro]];
-            } else {
-                localArray = [[NSMutableArray alloc] init];
-                for (int i = 1; i < last7DaysValues.count; i++) {
-                    [localArray addObject:last7DaysValues[i]];
-                }
-                [localArray addObject:[NSNumber numberWithUnsignedShort:todaysPomodoro]];
-            }
-            
+            NSMutableArray *localArray = [[NSMutableArray alloc] initWithArray:last7DaysValues];
+            [localArray addObject:[NSNumber numberWithUnsignedShort:todaysPomodoro]];
             last7DaysValues = [localArray copy];
-            
         } else {
             last7DaysValues = @[[NSNumber numberWithUnsignedShort:todaysPomodoro]];
         }
@@ -122,15 +108,9 @@ static NSDate *todayTestValue;
         // reset today counter
         [self resetTodaysPomodoro];
         
-    } else if ( [date isMoreThanOneDayInThePast]) {
-
-        NSArray *last7DaysValues = @[[NSNumber numberWithUnsignedShort:todaysPomodoro]];
-        
-        // save the array
-        [[NSUserDefaults standardUserDefaults] setObject: [NSKeyedArchiver archivedDataWithRootObject:last7DaysValues] forKey:kLastDaysKey];
-    }
+    } 
     
-    [[NSUserDefaults standardUserDefaults] setObject:[self todayTestValue] forKey:kLastOpeningTimestampKey];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:kLastOpeningTimestampKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

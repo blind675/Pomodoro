@@ -139,7 +139,7 @@
 		EB8D5BBF1A13D93D002DC189 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB8D5BC01A13D93D002DC189 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EB8D5BC61A13D93D002DC189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EB8D5BC81A13D93D002DC189 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EB8D5BC81A13D93D002DC189 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		EB8D5BCB1A13D93D002DC189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EB8D5BD11A13D93D002DC189 /* PomodoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8D5BD61A13D93D002DC189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -273,6 +273,17 @@
 		C450D4881A38C788000DFFE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EB8D5BC81A13D93D002DC189 /* Images.xcassets */,
+				EB8D5BC51A13D93D002DC189 /* Main.storyboard */,
+				EB8D5BCA1A13D93D002DC189 /* LaunchScreen.xib */,
+				C45B09021A3DEA0100475CD1 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C45B09021A3DEA0100475CD1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
 				C450D4891A38C788000DFFE5 /* tomato-contur@2x.png */,
 				C450D48A1A38C788000DFFE5 /* tomato-blue@2x.png */,
 				C450D48B1A38C788000DFFE5 /* tomato-dark-green@2x.png */,
@@ -280,7 +291,7 @@
 				C450D48D1A38C788000DFFE5 /* tomato-orange@2x.png */,
 				C450D48E1A38C788000DFFE5 /* tomato-red@2x.png */,
 			);
-			path = Resources;
+			name = Images;
 			sourceTree = "<group>";
 		};
 		C490DA371A325E5D00B5502B /* FXLib */ = {
@@ -355,13 +366,10 @@
 				EB0BA9A11A179D9700568214 /* DownViewController.m */,
 				EB0BA98B1A17722400568214 /* MainViewController.h */,
 				EB0BA98C1A17722400568214 /* MainViewController.m */,
-				EB8D5BC51A13D93D002DC189 /* Main.storyboard */,
 				EB0BA99A1A179C7C00568214 /* VerticalPageViewController.h */,
 				EB0BA99B1A179C7C00568214 /* VerticalPageViewController.m */,
 				EB0BA9941A17868100568214 /* HorizontalPageViewController.h */,
 				EB0BA9951A17868100568214 /* HorizontalPageViewController.m */,
-				EB8D5BC81A13D93D002DC189 /* Images.xcassets */,
-				EB8D5BCA1A13D93D002DC189 /* LaunchScreen.xib */,
 				EB8D5BBB1A13D93D002DC189 /* Supporting Files */,
 			);
 			path = Pomodoro;
@@ -547,6 +555,7 @@
 				EB8D5BC61A13D93D002DC189 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		EB8D5BCA1A13D93D002DC189 /* LaunchScreen.xib */ = {
@@ -555,6 +564,7 @@
 				EB8D5BCB1A13D93D002DC189 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
