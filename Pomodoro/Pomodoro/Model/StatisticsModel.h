@@ -22,4 +22,8 @@
 
 +(void)changeDayIfNeede;
 
+// used for tests
++(NSDate *)todayTestValue;
++(void)setTodayTestValue:(NSDate *)date ;
+
 @end

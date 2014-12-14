@@ -13,7 +13,22 @@
 @implementation StatisticsModel
 
 static unsigned short lastDaysAvg;
-//static NSDate *todayFirstOpeningTimestamp;
+
+// this is used for tests
+static NSDate *todayTestValue;
+
++(NSDate *)todayTestValue {
+
+    if (todayTestValue) {
+        return todayTestValue;
+    } else {
+        return [NSDate date];
+    }
+}
+
++(void)setTodayTestValue:(NSDate *)date{
+    todayTestValue = date;
+}
 
 +(unsigned short)todaysPomodoro {
     return (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kTodaysPomodoroKey];
@@ -67,7 +82,8 @@ static unsigned short lastDaysAvg;
 
 +(void)changeDayIfNeede {
     
-    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:kTodayFirstOpeningTimestampKey];
+    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:kLastOpeningTimestampKey];
+    NSLog(@" last open date:%@",date);
     
     // get todays value
     unsigned short todaysPomodoro = (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kTodaysPomodoroKey];
@@ -106,8 +122,6 @@ static unsigned short lastDaysAvg;
         // reset today counter
         [self resetTodaysPomodoro];
         
-        // set the new date
-        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:kTodayFirstOpeningTimestampKey];
     } else if ( [date isMoreThanOneDayInThePast]) {
 
         NSArray *last7DaysValues = @[[NSNumber numberWithUnsignedShort:todaysPomodoro]];
@@ -116,7 +130,7 @@ static unsigned short lastDaysAvg;
         [[NSUserDefaults standardUserDefaults] setObject: [NSKeyedArchiver archivedDataWithRootObject:last7DaysValues] forKey:kLastDaysKey];
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:kTodayFirstOpeningTimestampKey];
+    [[NSUserDefaults standardUserDefaults] setObject:[self todayTestValue] forKey:kLastOpeningTimestampKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

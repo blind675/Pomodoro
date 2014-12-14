@@ -17,7 +17,7 @@
 
 #define kTodaysPomodoroKey @"todaysPomodoroKey"
 #define kMaximumPomodoroKey @"maximumPomodoroKey"
-#define kTodayFirstOpeningTimestampKey @"todayFirstOpeningTimestampKey"
+#define kLastOpeningTimestampKey @"lastOpeningTimestampKey"
 #define kLastDaysKey @"last7DaysKey"
 #define kYesterdayPomodoroKey @"yesterdayPomodoroKey"
 

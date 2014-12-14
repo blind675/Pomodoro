@@ -25,6 +25,7 @@
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:kYesterdayPomodoroKey];
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:kTodaysPomodoroKey];
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kLastDaysKey];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kLastOpeningTimestampKey];
     //found a way to do cleanup
 }
 
@@ -35,6 +36,7 @@
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:kYesterdayPomodoroKey];
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:kTodaysPomodoroKey];
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kLastDaysKey];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kLastOpeningTimestampKey];
     //found a way to do cleanup
     
     [super tearDown];
