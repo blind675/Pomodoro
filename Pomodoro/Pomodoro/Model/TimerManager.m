@@ -9,6 +9,7 @@
 #import "TimerManager.h"
 #import "TimerModel.h"
 #import "StatisticsModel.h"
+#import <UIKit/UIKit.h>
 
 @interface TimerManager() {
     unsigned short remainingTime;
@@ -58,8 +59,20 @@
 
 -(unsigned short)moveToTheNextIntervalType {
     
+    //TODO: cleanup the code
     if ([TimerModel currentTimingIntervalType] == WorkingTime) {
-        //TODO: triger notification if app not active
+        
+        //triger notification if app not active
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        if (notification)
+        {
+            notification.alertBody = @"Pomodoro time ended. Take a break.";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+        }
+        
+        // this will fire the notification right away
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        
         [StatisticsModel incrementTodaysPomodoro];
         
         if (!([StatisticsModel todaysPomodoro] % 4)) {
@@ -70,7 +83,18 @@
             return [TimerModel shortPauseTime];
         }
     } else {
-        //TODO: triger notification if app not active
+        
+        //triger notification if app not active
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        if (notification)
+        {
+            notification.alertBody = @"Break over. Back to work.";
+            notification.soundName = UILocalNotificationDefaultSoundName;
+        }
+        
+        // this will fire the notification right away
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        
         [TimerModel setCurrentTimingIntervalType:WorkingTime];
         return [TimerModel workingTime];
     }
