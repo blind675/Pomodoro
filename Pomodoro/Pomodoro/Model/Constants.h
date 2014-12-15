@@ -21,6 +21,13 @@
 #define kLastDaysKey @"last7DaysKey"
 #define kYesterdayPomodoroKey @"yesterdayPomodoroKey"
 
+#define kActivateNotifications @"This app works better with notifications enabled. Would you like to enable them?"
+
+// notificationMessages
+#define kWorkNotificationMessage @"Break is over. Back to work."
+#define kShortBreakNotificationMessage @"You look exhausted. Take a short break." 
+#define kLongBreakNotificationMessage @"It's time for a longer break. Relax." 
+
 #define kAboutDescription1 @"The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.The technique uses a timer to break down work into intervals traditionally 25 minutes in length, separated by short breaks. These intervals are known as \"pomodori\", the plural of the Italian word pomodoro for \"tomato\". The method is based on the idea that frequent breaks can improve mental agility. (wikipedia.com)"
 
 #define kAboutDescription2 @"For many people, time is an enemy. We race against the clock to finish assignments and meet deadlines. The Pomodoro Technique teaches you to work with time, instead of struggling against it. A revolutionary time management system, it is at once deceptively simple to learn and life-changing to use.(pomodorotechnique.com)"

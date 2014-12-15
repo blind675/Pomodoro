@@ -31,6 +31,7 @@
 		C4C6B0711A3A219A007873BC /* NSDate+Yesterday.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0701A3A219A007873BC /* NSDate+Yesterday.m */; };
 		C4C6B0731A3A2E65007873BC /* DateExtraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0721A3A2E65007873BC /* DateExtraTests.m */; };
 		C4C6B0751A3A40AB007873BC /* StatisticsModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0741A3A40AB007873BC /* StatisticsModelTests.m */; };
+		C4DC61F41A3F662600C0995C /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DC61F31A3F662600C0995C /* NotificationManager.m */; };
 		EB0BA98D1A17722400568214 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98C1A17722400568214 /* MainViewController.m */; };
 		EB0BA9901A17729D00568214 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA98F1A17729D00568214 /* LeftViewController.m */; };
 		EB0BA9931A1772B500568214 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0BA9921A1772B500568214 /* RightViewController.m */; };
@@ -114,6 +115,8 @@
 		C4C6B0701A3A219A007873BC /* NSDate+Yesterday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Yesterday.m"; sourceTree = "<group>"; };
 		C4C6B0721A3A2E65007873BC /* DateExtraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateExtraTests.m; sourceTree = "<group>"; };
 		C4C6B0741A3A40AB007873BC /* StatisticsModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsModelTests.m; sourceTree = "<group>"; };
+		C4DC61F21A3F662600C0995C /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
+		C4DC61F31A3F662600C0995C /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		EB0BA98B1A17722400568214 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		EB0BA98C1A17722400568214 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		EB0BA98E1A17729D00568214 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
@@ -323,6 +326,8 @@
 				EB0BA9AD1A17FE9C00568214 /* TimerManager.m */,
 				C450D4981A38D698000DFFE5 /* StatisticsModel.h */,
 				C450D4991A38D698000DFFE5 /* StatisticsModel.m */,
+				C4DC61F21A3F662600C0995C /* NotificationManager.h */,
+				C4DC61F31A3F662600C0995C /* NotificationManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB0BA9A21A179D9700568214 /* DownViewController.m in Sources */,
+				C4DC61F41A3F662600C0995C /* NotificationManager.m in Sources */,
 				EB0BA98D1A17722400568214 /* MainViewController.m in Sources */,
 				C490DA3D1A32630B00B5502B /* RQShineLabel.m in Sources */,
 				EB0BA9961A17868100568214 /* HorizontalPageViewController.m in Sources */,

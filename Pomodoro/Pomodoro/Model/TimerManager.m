@@ -9,7 +9,7 @@
 #import "TimerManager.h"
 #import "TimerModel.h"
 #import "StatisticsModel.h"
-#import <UIKit/UIKit.h>
+#import "NotificationManager.h"
 
 @interface TimerManager() {
     unsigned short remainingTime;
@@ -36,7 +36,7 @@
     unsigned short countDounValue;
     
     if ([TimerModel currentTimerState] == TimerStop) {
-        countDounValue =[TimerModel workingTime];
+        countDounValue = [TimerModel workingTime];
         [TimerModel setCurrentTimingIntervalType:WorkingTime];
     } else {
         countDounValue = remainingTime;
@@ -44,37 +44,30 @@
     
     [TimerModel setCurrentTimerState:TimerStart];
     
+    [[NotificationManager sharedManager] addNotificationsListWithRemainingTime:countDounValue];
+    
     return countDounValue;
 }
 
 -(void)pauseTimerAtValue:(unsigned short)countDownValue {
     remainingTime = countDownValue;
     [TimerModel setCurrentTimerState:TimerPause];
+    
+    [[NotificationManager sharedManager] removeNotificationsList];
 }
 
 -(void)stopTimer {
     remainingTime = 0;
     [TimerModel setCurrentTimerState:TimerStop];
+    
+    [[NotificationManager sharedManager] removeNotificationsList];
 }
 
 -(unsigned short)moveToTheNextIntervalType {
     
-    //TODO: cleanup the code
     if ([TimerModel currentTimingIntervalType] == WorkingTime) {
         
-        //triger notification if app not active
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        if (notification)
-        {
-            notification.alertBody = @"Pomodoro time ended. Take a break.";
-            notification.soundName = UILocalNotificationDefaultSoundName;
-        }
-        
-        // this will fire the notification right away
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-        
         [StatisticsModel incrementTodaysPomodoro];
-        
         if (!([StatisticsModel todaysPomodoro] % 4)) {
             [TimerModel setCurrentTimingIntervalType:LongPause];
             return [TimerModel longPauseTime];
@@ -83,17 +76,6 @@
             return [TimerModel shortPauseTime];
         }
     } else {
-        
-        //triger notification if app not active
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        if (notification)
-        {
-            notification.alertBody = @"Break over. Back to work.";
-            notification.soundName = UILocalNotificationDefaultSoundName;
-        }
-        
-        // this will fire the notification right away
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
         
         [TimerModel setCurrentTimingIntervalType:WorkingTime];
         return [TimerModel workingTime];
