@@ -11,6 +11,8 @@
 
 @interface NotificationManager : NSObject <UIAlertViewDelegate>
 
+@property BOOL userWantsToExtendTime; 
+
 +(id)sharedManager;
 
 - (void)addNotificationsListWithRemainingTime:(unsigned short)remainingTime;

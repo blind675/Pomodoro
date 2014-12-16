@@ -22,6 +22,8 @@
 #define kYesterdayPomodoroKey @"yesterdayPomodoroKey"
 
 #define kActivateNotifications @"This app works better with notifications enabled. Would you like to enable them?"
+#define kOKActionKey @"OKActionKey"
+#define kKeepGoingActionKey @"kKeepGoingActionKey"
 
 // notificationMessages
 #define kWorkNotificationMessage @"Break is over. Back to work."
