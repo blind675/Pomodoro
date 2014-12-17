@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "StatisticsModel.h"
+#import "Constants.h"
 
 @interface AppDelegate ()
 
@@ -18,9 +19,31 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // define user interactions
+    UIMutableUserNotificationAction *OKAction = [[UIMutableUserNotificationAction alloc] init];
+    OKAction.identifier = kOKActionKey;
+    OKAction.title = @"OK";
+    OKAction.activationMode = UIUserNotificationActivationModeBackground;
+    OKAction.authenticationRequired = false;
+    OKAction.destructive = false;
+    
+    UIMutableUserNotificationAction *KeepGoingAction = [[UIMutableUserNotificationAction alloc] init];
+    KeepGoingAction.identifier = kKeepGoingActionKey;
+    KeepGoingAction.title = @"Keep going";
+    KeepGoingAction.activationMode = UIUserNotificationActivationModeBackground;
+    KeepGoingAction.authenticationRequired = false;
+    KeepGoingAction.destructive = true;
+    
+    // 2. Create the category ***********************************************
+    
+    // Category
+    UIMutableUserNotificationCategory *warningNotificationCategory = [[UIMutableUserNotificationCategory alloc] init];
+    warningNotificationCategory.identifier = kWarningNotificationCategoryKey;
+    [warningNotificationCategory setActions:@[OKAction,KeepGoingAction] forContext:UIUserNotificationActionContextDefault];
+    
     // New for iOS 8 - Register the notifications
     UIUserNotificationType types = UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-    UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:types categories:[NSSet setWithObject:kWarningNotificationCategoryKey]];
     [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
     
     // Override point for customization after application launch.

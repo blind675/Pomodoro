@@ -23,7 +23,8 @@
 
 #define kActivateNotifications @"This app works better with notifications enabled. Would you like to enable them?"
 #define kOKActionKey @"OKActionKey"
-#define kKeepGoingActionKey @"kKeepGoingActionKey"
+#define kKeepGoingActionKey @"KeepGoingActionKey"
+#define kWarningNotificationCategoryKey @"warningNotificationCategory"
 
 // notificationMessages
 #define kWorkNotificationMessage @"Break is over. Back to work."

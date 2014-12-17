@@ -99,6 +99,8 @@
             nextNotification.soundName = UILocalNotificationDefaultSoundName;
             nextNotification.fireDate = nextNotificationTime;
         }
+        
+//        [[UIApplication sharedApplication] presentLocalNotificationNow:nextNotification];
         [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
  
         // create the notofications until the warning mark and schedule them
@@ -148,21 +150,10 @@
             nextNotification.alertBody = nextNotificationText;
             nextNotification.soundName = UILocalNotificationDefaultSoundName;
             nextNotification.fireDate = nextNotificationTime;
+            nextNotification.category = kWarningNotificationCategoryKey;
             
-            UIMutableUserNotificationAction *OKAction = [[UIMutableUserNotificationAction alloc] init];
-            OKAction.identifier = kOKActionKey;
-            OKAction.title = @"OK";
-            OKAction.activationMode = UIUserNotificationActivationModeBackground;
-            OKAction.authenticationRequired = false;
-            OKAction.destructive = false;
-            
-            UIMutableUserNotificationAction *KeepGoingAction = [[UIMutableUserNotificationAction alloc] init];
-            KeepGoingAction.identifier = kKeepGoingActionKey;
-            KeepGoingAction.title = @"Keep going";
-            KeepGoingAction.activationMode = UIUserNotificationActivationModeBackground;
-            KeepGoingAction.authenticationRequired = false;
-            KeepGoingAction.destructive = true;
         }
+//        [[UIApplication sharedApplication] presentLocalNotificationNow:nextNotification];
         [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
         
         //TODO: create the rest of notifications ?? -- diferent methode
