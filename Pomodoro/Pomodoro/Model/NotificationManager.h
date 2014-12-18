@@ -11,11 +11,11 @@
 
 @interface NotificationManager : NSObject <UIAlertViewDelegate>
 
-@property BOOL userWantsToExtendTime; 
+@property BOOL userPassedTheNormalTime;
 
-+(id)sharedManager;
++(id)sharedInstance;
 
 - (void)addNotificationsListWithRemainingTime:(unsigned short)remainingTime;
-- (void)removeNotificationsList;
+- (void)removeAllNotifications;
 
 @end

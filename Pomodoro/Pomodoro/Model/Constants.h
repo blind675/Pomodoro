@@ -9,6 +9,11 @@
 #ifndef Pomodoro_Constants_h
 #define Pomodoro_Constants_h
 
+// saving data
+#define kLastTimeAppEnteredBackgroundTimestampKey @"lastTimeAppEnteredBackgroundTimestampKey"
+#define kTimeLeftUntilNextStateKey @"timeLeftUntilNextStateKey"
+#define KTimerWasLeftRunningKey @"timerWasLeftRunningKey"
+
 #define kResetTimersDuration @"resetTimersDuration"
 
 #define kWorkingTimeKey @"workingTimeKey"

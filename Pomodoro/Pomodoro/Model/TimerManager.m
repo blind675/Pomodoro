@@ -18,7 +18,7 @@
 
 @implementation TimerManager
 
-+ (id)sharedManager {
++ (id)sharedInstance {
     static TimerManager *sharedTimerManager = nil;
     @synchronized(self) {
         if (sharedTimerManager == nil){
@@ -44,7 +44,7 @@
     
     [TimerModel setCurrentTimerState:TimerStart];
     
-    [[NotificationManager sharedManager] addNotificationsListWithRemainingTime:countDounValue];
+    [[NotificationManager sharedInstance] addNotificationsListWithRemainingTime:countDounValue];
     
     return countDounValue;
 }
@@ -53,17 +53,19 @@
     remainingTime = countDownValue;
     [TimerModel setCurrentTimerState:TimerPause];
     
-    [[NotificationManager sharedManager] removeNotificationsList];
+    [[NotificationManager sharedInstance] removeAllNotifications];
 }
 
 -(void)stopTimer {
     remainingTime = 0;
     [TimerModel setCurrentTimerState:TimerStop];
     
-    [[NotificationManager sharedManager] removeNotificationsList];
+    [[NotificationManager sharedInstance] removeAllNotifications];
 }
 
 -(unsigned short)moveToTheNextIntervalType {
+    
+    NSLog(@" -- Pomodoro moved to the next step. Pomodoro done Today:%d" ,[StatisticsModel todaysPomodoro]);
     
     if ([TimerModel currentTimingIntervalType] == WorkingTime) {
         

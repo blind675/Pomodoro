@@ -12,7 +12,8 @@
 #import "StatisticsModel.h"
 
 #define kMaxWorkingHours 12
-#define kWaningHours 8
+#define kWaningHours 7
+
 
 @interface NotificationManager() {
     NSMutableArray *nottificationsArray;
@@ -21,12 +22,12 @@
 
 @implementation NotificationManager
 
-+ (id)sharedManager {
++ (id)sharedInstance {
     static NotificationManager *sharedNotificationManager = nil;
     @synchronized(self) {
         if (sharedNotificationManager == nil){
             sharedNotificationManager = [[self alloc] init];
-            sharedNotificationManager.userWantsToExtendTime = NO;
+            sharedNotificationManager.userPassedTheNormalTime = NO;
         }
     }
     return sharedNotificationManager;
@@ -48,7 +49,7 @@
     return NO;
 }
 
-- (void)removeNotificationsList {
+- (void)removeAllNotifications {
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
@@ -104,8 +105,8 @@
             nextNotification.fireDate = nextNotificationTime;
         }
         
-        [[UIApplication sharedApplication] presentLocalNotificationNow:nextNotification];
-//        [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
+//        [[UIApplication sharedApplication] presentLocalNotificationNow:nextNotification];
+        [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
  
         // create the notofications until the warning mark and schedule them
         for (int i = 1; i < pomodorosLeftUntilWarning * 2; i++) {
@@ -132,7 +133,7 @@
                 nextNotification.fireDate = nextNotificationTime;
             }
 //        [[UIApplication sharedApplication] presentLocalNotificationNow:nextNotification];
-//        [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
+        [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
         
         }
         //create an interactive notification and schedule it
@@ -152,14 +153,17 @@
         nextNotification = [[UILocalNotification alloc] init];
         if (nextNotification)
         {
+//            nextNotificationTime = [[NSDate date] dateByAddingTimeInterval:10];
+            
             nextNotification.alertBody = nextNotificationText;
             nextNotification.soundName = UILocalNotificationDefaultSoundName;
             nextNotification.fireDate = nextNotificationTime;
             nextNotification.category = kWarningNotificationCategoryKey;
+            nextNotification.repeatInterval = 0;
             
         }
 //        [[UIApplication sharedApplication] presentLocalNotificationNow:nextNotification];
-//        [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
+        [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
         
         //TODO: create the rest of notifications ?? -- diferent methode
         

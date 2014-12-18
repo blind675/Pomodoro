@@ -48,8 +48,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    //TODO: Test if i have notification wrights and display a popup if not.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +55,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)startButtonPressed:(id)sender {
-    countDownValue = [[TimerManager sharedManager]startTimer];
+    countDownValue = [[TimerManager sharedInstance] startTimer];
     
     [self takeCareOfTheUI];
     
@@ -72,7 +70,7 @@
     [generalTimer invalidate];
     generalTimer = nil;
     
-    [[TimerManager sharedManager]stopTimer];
+    [[TimerManager sharedInstance] stopTimer];
     [self takeCareOfTheUI];
     
     // also reset the
@@ -84,7 +82,7 @@
     [generalTimer invalidate];
     generalTimer = nil;
     
-    [[TimerManager sharedManager] pauseTimerAtValue:countDownValue];
+    [[TimerManager sharedInstance] pauseTimerAtValue:countDownValue];
     [self takeCareOfTheUI];
 }
 
@@ -186,7 +184,7 @@
 -(void)timerTicked {
     
     if (countDownValue == 0) {
-        countDownValue = [[TimerManager sharedManager] moveToTheNextIntervalType];
+        countDownValue = [[TimerManager sharedInstance] moveToTheNextIntervalType];
         [self updateStatusLabel];
     }
     

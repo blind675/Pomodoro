@@ -10,7 +10,7 @@
 
 @interface TimerManager : NSObject
 
-+(id)sharedManager;
++(id)sharedInstance;
 
 -(unsigned short)startTimer;
 -(void)pauseTimerAtValue:(unsigned short)countDownValue;
