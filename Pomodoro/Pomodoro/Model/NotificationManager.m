@@ -36,10 +36,14 @@
 
 - (BOOL)areNotificationsEnabledByTheUser {
     
-    UIUserNotificationSettings *grantedSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
-    if (grantedSettings.types & UIUserNotificationTypeSound ){
-        return YES;
-    }
+    UIUserNotificationSettings *currentNotificationSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+    if (currentNotificationSettings.types != UIUserNotificationTypeNone) {
+        if ((currentNotificationSettings.types & UIUserNotificationTypeSound) != 0) {
+            if ((currentNotificationSettings.types & UIUserNotificationTypeAlert) != 0) {
+                return YES;
+            }
+        }
+    };
     
     return NO;
 }
@@ -100,8 +104,8 @@
             nextNotification.fireDate = nextNotificationTime;
         }
         
-//        [[UIApplication sharedApplication] presentLocalNotificationNow:nextNotification];
-        [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
+        [[UIApplication sharedApplication] presentLocalNotificationNow:nextNotification];
+//        [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
  
         // create the notofications until the warning mark and schedule them
         for (int i = 1; i < pomodorosLeftUntilWarning * 2; i++) {
@@ -127,9 +131,10 @@
                 nextNotification.soundName = UILocalNotificationDefaultSoundName;
                 nextNotification.fireDate = nextNotificationTime;
             }
-            [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
-        }
+//        [[UIApplication sharedApplication] presentLocalNotificationNow:nextNotification];
+//        [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
         
+        }
         //create an interactive notification and schedule it
         
         // increment the date
@@ -154,7 +159,7 @@
             
         }
 //        [[UIApplication sharedApplication] presentLocalNotificationNow:nextNotification];
-        [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
+//        [[UIApplication sharedApplication] scheduleLocalNotification:nextNotification];
         
         //TODO: create the rest of notifications ?? -- diferent methode
         
