@@ -90,7 +90,7 @@
     
     // read internal timer state
     NSDate *lastTimestamp = [[NSUserDefaults standardUserDefaults] objectForKey:kLastTimeAppEnteredBackgroundTimestampKey];
-    double secondsTillNow = [lastTimestamp timeIntervalSinceNow];
+    double secondsTillNow = abs([lastTimestamp timeIntervalSinceNow]);
     
     long timeLeft = [[NSUserDefaults standardUserDefaults] integerForKey:kTimeLeftUntilNextStateKey];
     long lastStateValue = [[NSUserDefaults standardUserDefaults] integerForKey:kTimerStateAtBackgroundEntryKey];
@@ -102,9 +102,47 @@
     NSLog(@" last state:%ld",lastStateValue);
     NSLog(@" last interval type:%ld",lastIntervalTypeValue);
     
+    if (lastStateValue == TimerStart) {
+        // no stage change or anything
+        if (secondsTillNow < remainingTime) {
+            return remainingTime - secondsTillNow;
+        } else {
+            
+            NSArray *durationArray = @[[NSNumber numberWithUnsignedShort:[TimerModel workingTime]],[NSNumber numberWithUnsignedShort:[TimerModel shortPauseTime]],
+                                       [NSNumber numberWithUnsignedShort:[TimerModel workingTime]],[NSNumber numberWithUnsignedShort:[TimerModel shortPauseTime]],
+                                       [NSNumber numberWithUnsignedShort:[TimerModel workingTime]],[NSNumber numberWithUnsignedShort:[TimerModel shortPauseTime]],
+                                       [NSNumber numberWithUnsignedShort:[TimerModel workingTime]],[NSNumber numberWithUnsignedShort:[TimerModel longPauseTime]]];
+            
+            /* determine place in the pomodoro sequence. A pomodoro sequence is:
+             WorkingTime - ShortBreak - WorkingTime - ShortBreak - WorkingTime - ShortBreak - WorkingTime - LongBreak
+             */
+            int intervalPointerIndex = [StatisticsModel todaysPomodoro] % 4;
+            if (lastIntervalTypeValue != WorkingTime) {
+                intervalPointerIndex++;
+            }
+            
+            double remainingTimeUntilNext = 0;
+            
+            while (secondsTillNow > 0) {
+                
+                remainingTimeUntilNext = secondsTillNow ;
+                
+                intervalPointerIndex++;
+                if (intervalPointerIndex == 8) {
+                    intervalPointerIndex = 0;
+                }
+                secondsTillNow -= [durationArray[intervalPointerIndex] unsignedShortValue];
+            }
+            
+            NSLog(@" remaining time from interval:%f",remainingTimeUntilNext);
+            
+            //TODO: find the interval type and set it
+        }
+    }
+    
+    // if the last state was stoped of pause do nothing
+    
+
     return 0;
 }
-
-
-
 @end

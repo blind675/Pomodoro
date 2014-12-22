@@ -11,9 +11,6 @@
 #import "Constants.h"
 #import "StatisticsModel.h"
 
-#define kMaxWorkingHours 12
-#define kWaningHours 7
-
 
 @interface NotificationManager() {
     NSMutableArray *nottificationsArray;
