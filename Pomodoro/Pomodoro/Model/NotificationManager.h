@@ -17,5 +17,6 @@
 
 - (void)addNotificationsListWithRemainingTime:(unsigned short)remainingTime;
 - (void)removeAllNotifications;
+- (BOOL)areNotificationsEnabledByTheUser;
 
 @end

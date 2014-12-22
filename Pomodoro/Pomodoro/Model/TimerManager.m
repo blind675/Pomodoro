@@ -10,6 +10,7 @@
 #import "TimerModel.h"
 #import "StatisticsModel.h"
 #import "NotificationManager.h"
+#import "Constants.h"
 
 @interface TimerManager() {
     unsigned short remainingTime;
@@ -44,7 +45,7 @@
     
     [TimerModel setCurrentTimerState:TimerStart];
     
-    [[NotificationManager sharedInstance] addNotificationsListWithRemainingTime:countDounValue];
+//    [[NotificationManager sharedInstance] addNotificationsListWithRemainingTime:countDounValue];
     
     return countDounValue;
 }
@@ -82,7 +83,28 @@
         [TimerModel setCurrentTimingIntervalType:WorkingTime];
         return [TimerModel workingTime];
     }
-    
 }
+
+
+-(unsigned short)resetTheTimerStateAndReturnTheRemainingTimeToNextState {
+    
+    // read internal timer state
+    NSDate *lastTimestamp = [[NSUserDefaults standardUserDefaults] objectForKey:kLastTimeAppEnteredBackgroundTimestampKey];
+    double secondsTillNow = [lastTimestamp timeIntervalSinceNow];
+    
+    long timeLeft = [[NSUserDefaults standardUserDefaults] integerForKey:kTimeLeftUntilNextStateKey];
+    long lastStateValue = [[NSUserDefaults standardUserDefaults] integerForKey:kTimerStateAtBackgroundEntryKey];
+    long lastIntervalTypeValue = [[NSUserDefaults standardUserDefaults] integerForKey:kTimerIntervalTypeAtBackgroundEntryKey];
+    
+    NSLog(@" last timestamp:%@",lastTimestamp);
+    NSLog(@" time left:%ld",timeLeft);
+    NSLog(@" seconds since the app entered background:%f",secondsTillNow);
+    NSLog(@" last state:%ld",lastStateValue);
+    NSLog(@" last interval type:%ld",lastIntervalTypeValue);
+    
+    return 0;
+}
+
+
 
 @end

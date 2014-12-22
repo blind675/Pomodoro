@@ -16,5 +16,6 @@
 -(void)pauseTimerAtValue:(unsigned short)countDownValue;
 -(void)stopTimer;
 -(unsigned short)moveToTheNextIntervalType;
+-(unsigned short)resetTheTimerStateAndReturnTheRemainingTimeToNextState;
 
 @end

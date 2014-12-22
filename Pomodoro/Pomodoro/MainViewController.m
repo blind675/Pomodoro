@@ -44,6 +44,18 @@
                                                  name:kResetTimersDuration
                                                object:nil];
     
+    // app entered background
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(saveTheTimerState)
+                                                 name:kApplicationEnteredBackgroundKey
+                                               object:nil];
+    
+    // app started background
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(resetApplicationState)
+                                                 name:kApplicationStartedKey
+                                               object:nil];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -72,8 +84,6 @@
     
     [[TimerManager sharedInstance] stopTimer];
     [self takeCareOfTheUI];
-    
-    // also reset the
 }
 
 - (IBAction)pauseButtonPressed:(id)sender {
@@ -181,7 +191,7 @@
 
 #pragma mark - timer part
 
--(void)timerTicked {
+- (void)timerTicked {
     
     if (countDownValue == 0) {
         countDownValue = [[TimerManager sharedInstance] moveToTheNextIntervalType];
@@ -192,12 +202,32 @@
     self.timeLabel.text = [TimerModel stringTimeFormatForValue:countDownValue];
 }
 
-- (void) dealloc
+- (void)dealloc
 {
     // If you don't remove yourself as an observer, the Notification Center
     // will continue to try and send notification objects to the deallocated
     // object.
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)saveTheTimerState {
+    
+    // save the timer internal state
+    [[NSUserDefaults standardUserDefaults] setInteger:[TimerModel currentTimerState] forKey:kTimerStateAtBackgroundEntryKey];
+    [[NSUserDefaults standardUserDefaults] setInteger:[TimerModel currentTimingIntervalType] forKey:kTimerIntervalTypeAtBackgroundEntryKey];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:kLastTimeAppEnteredBackgroundTimestampKey];
+    // save time left
+    [[NSUserDefaults standardUserDefaults] setInteger:countDownValue forKey:kTimeLeftUntilNextStateKey];
+    
+    //stop the timer
+    [generalTimer invalidate];
+    generalTimer = nil;
+}
+
+- (void)resetApplicationState {
+    
+    NSLog(@"Restart Application State");
+    
 }
 
 /*

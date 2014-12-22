@@ -12,7 +12,10 @@
 // saving data
 #define kLastTimeAppEnteredBackgroundTimestampKey @"lastTimeAppEnteredBackgroundTimestampKey"
 #define kTimeLeftUntilNextStateKey @"timeLeftUntilNextStateKey"
-#define KTimerWasLeftRunningKey @"timerWasLeftRunningKey"
+#define kTimerStateAtBackgroundEntryKey @"timerStateAtBackgroundEntryKey"
+#define kTimerIntervalTypeAtBackgroundEntryKey @"timerIntervalTypeAtBackgroundEntryKey"
+#define kApplicationEnteredBackgroundKey @"applicationEnteredBackgroundKey"
+#define kApplicationStartedKey @"applicationStartedKey"
 
 #define kResetTimersDuration @"resetTimersDuration"
 

@@ -33,7 +33,7 @@ static IntervalType intervalType;
     if (value == 0) {
         // 1500 = 25 min
 //        return 1500;
-        return 120;
+        return 600;
     } else {
         return value;
     }
@@ -45,7 +45,7 @@ static IntervalType intervalType;
     if (value == 0) {
         //  300 =  5 min
 //        return 300;
-        return 30;
+        return 300;
     } else {
         return value;
     }
@@ -57,7 +57,7 @@ static IntervalType intervalType;
     if (value == 0) {
         //  900 = 15 min
 //        return 900;
-        return 60;
+        return 450;
     } else {
         return value;
     }

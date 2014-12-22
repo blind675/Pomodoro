@@ -11,15 +11,15 @@
 @interface TimerModel : NSObject
 
 typedef enum {
-    TimerStart,
-    TimerPause,
-    TimerStop,
+    TimerStart = 1,
+    TimerPause = 2,
+    TimerStop = 3,
 } TimerState ;
 
 typedef enum {
-    WorkingTime,
-    ShortPause,
-    LongPause,
+    WorkingTime = 11,
+    ShortPause = 22,
+    LongPause = 33,
 } IntervalType;
 
 +(TimerState)currentTimerState;

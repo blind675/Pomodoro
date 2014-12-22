@@ -10,6 +10,7 @@
 #import "StatisticsModel.h"
 #import "Constants.h"
 #import "NotificationManager.h"
+#import "TimerManager.h"
 
 @interface AppDelegate ()
 
@@ -20,45 +21,47 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // 1. Create the actions **************************************************
-    
-    // OK Action
-    UIMutableUserNotificationAction *OKAction = [[UIMutableUserNotificationAction alloc] init];
-    OKAction.identifier = kOKActionKey;
-    OKAction.title = @"OK";
-    OKAction.activationMode = UIUserNotificationActivationModeBackground;
-    OKAction.authenticationRequired = YES;
-    OKAction.destructive = NO;
-    
-    // Continuie Action
-    UIMutableUserNotificationAction *KeepGoingAction = [[UIMutableUserNotificationAction alloc] init];
-    KeepGoingAction.identifier = kKeepGoingActionKey;
-    KeepGoingAction.title = @"Keep Going";
-    KeepGoingAction.activationMode = UIUserNotificationActivationModeBackground;
-    KeepGoingAction.authenticationRequired = YES;
-    KeepGoingAction.destructive = NO;
-    
-    // 2. Create the category ***********************************************
-    
-    // Category
-    UIMutableUserNotificationCategory *warningNotificationCategory = [[UIMutableUserNotificationCategory alloc] init];
-    warningNotificationCategory.identifier = kWarningNotificationCategoryKey;
-    
-    // A. Set actions for the default context
-    [warningNotificationCategory setActions:@[OKAction,KeepGoingAction] forContext:UIUserNotificationActionContextDefault];
-    // B. Set actions for the minimal context
-    [warningNotificationCategory setActions:@[OKAction,KeepGoingAction] forContext:UIUserNotificationActionContextMinimal];
-    
-    NSSet *categories = [NSSet setWithObjects:warningNotificationCategory,nil];
-    
-    // 3. Notification Registration *****************************************
-    
-    // New for iOS 8 - Register the notifications
-    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-    UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:types categories:categories];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-    
-    // TODO: test if timer was left running and update all thats need to be updated
+    // app doesen't have notification enabled
+    if (![[NotificationManager sharedInstance] areNotificationsEnabledByTheUser]) {
+        
+        // 1. Create the actions **************************************************
+        
+        // OK Action
+        UIMutableUserNotificationAction *OKAction = [[UIMutableUserNotificationAction alloc] init];
+        OKAction.identifier = kOKActionKey;
+        OKAction.title = @"OK";
+        OKAction.activationMode = UIUserNotificationActivationModeBackground;
+        OKAction.authenticationRequired = YES;
+        OKAction.destructive = NO;
+        
+        // Continuie Action
+        UIMutableUserNotificationAction *KeepGoingAction = [[UIMutableUserNotificationAction alloc] init];
+        KeepGoingAction.identifier = kKeepGoingActionKey;
+        KeepGoingAction.title = @"Keep Going";
+        KeepGoingAction.activationMode = UIUserNotificationActivationModeBackground;
+        KeepGoingAction.authenticationRequired = YES;
+        KeepGoingAction.destructive = NO;
+        
+        // 2. Create the category ***********************************************
+        
+        // Category
+        UIMutableUserNotificationCategory *warningNotificationCategory = [[UIMutableUserNotificationCategory alloc] init];
+        warningNotificationCategory.identifier = kWarningNotificationCategoryKey;
+        
+        // A. Set actions for the default context
+        [warningNotificationCategory setActions:@[OKAction,KeepGoingAction] forContext:UIUserNotificationActionContextDefault];
+        // B. Set actions for the minimal context
+        [warningNotificationCategory setActions:@[OKAction,KeepGoingAction] forContext:UIUserNotificationActionContextMinimal];
+        
+        NSSet *categories = [NSSet setWithObjects:warningNotificationCategory,nil];
+        
+        // 3. Notification Registration *****************************************
+        
+        // New for iOS 8 - Register the notifications
+        UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:types categories:categories];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+    }
     
     // Override point for customization after application launch.
     return YES;
@@ -76,19 +79,26 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     NSLog(@"Application Did Enter Background");
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kApplicationEnteredBackgroundKey object:self];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    
-    // TODO: put the flag that the timer is running and invalidate timer if the timer is running
-    // TODO: save the timestamp and the left time
+
     NSLog(@"Application Will Enter Foreground");
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    NSLog(@"Application Did Become Active");
+    
+    unsigned short timeLeft = [[TimerManager sharedInstance] resetTheTimerStateAndReturnTheRemainingTimeToNextState];
+    
     [StatisticsModel changeDayIfNeede];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kApplicationStartedKey object:self];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
