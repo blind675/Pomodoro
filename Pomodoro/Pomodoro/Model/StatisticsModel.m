@@ -50,6 +50,12 @@ static BOOL isYesterdayTestValue;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
++(void)setTodayPomodoro:(unsigned short)newPomodoValue {
+    [[NSUserDefaults standardUserDefaults] setInteger:newPomodoValue forKey:kTodaysPomodoroKey];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 +(unsigned short)averagePomodoro {
     NSArray *last7DaysValues = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:kLastDaysKey]] ;
     

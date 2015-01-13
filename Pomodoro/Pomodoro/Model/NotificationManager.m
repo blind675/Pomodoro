@@ -72,10 +72,10 @@
         NSLog(@" time left until warning:%f = %d (pomodori)",timeLeftUntilWarning,pomodorosLeftUntilWarning);
         
         // determine how many notifications until the max hour mark ??
-        double timeLeftUntilMaxWork = kMaxWorkingHours * 60 * 60 - [StatisticsModel todaysPomodoro] * [TimerModel workingTime];
-        int pomodorosLeftUntilMaxWork = timeLeftUntilMaxWork / [TimerModel workingTime];
-        NSLog(@" time left until Max :%f = %d (pomodori)",timeLeftUntilMaxWork,pomodorosLeftUntilMaxWork);
-        
+//        double timeLeftUntilMaxWork = kMaxWorkingHours * 60 * 60 - [StatisticsModel todaysPomodoro] * [TimerModel workingTime];
+//        int pomodorosLeftUntilMaxWork = timeLeftUntilMaxWork / [TimerModel workingTime];
+//        NSLog(@" time left until Max :%f = %d (pomodori)",timeLeftUntilMaxWork,pomodorosLeftUntilMaxWork);
+//        
         
         NSLog(@"   - old date:%@ add time:%@",[NSDate date], [TimerModel stringTimeFormatForValue:remainingTime]);
         // determine time untll the next notification

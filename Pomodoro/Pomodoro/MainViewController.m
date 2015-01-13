@@ -52,7 +52,7 @@
     
     // app started background
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(resetApplicationState)
+                                             selector:@selector(resetApplicationState:)
                                                  name:kApplicationStartedKey
                                                object:nil];
     
@@ -212,6 +212,13 @@
 
 - (void)saveTheTimerState {
     
+    NSLog(@" SAVE STATE ");
+    
+    NSLog(@"  - seconds left until next state change:%hu",countDownValue);
+    NSLog(@"  - current date:%@", [NSDate date]);
+    NSLog(@"  - current state:%u",[TimerModel currentTimerState]);
+    NSLog(@"  - curent interval type:%u",[TimerModel currentTimingIntervalType]);
+    
     // save the timer internal state
     [[NSUserDefaults standardUserDefaults] setInteger:[TimerModel currentTimerState] forKey:kTimerStateAtBackgroundEntryKey];
     [[NSUserDefaults standardUserDefaults] setInteger:[TimerModel currentTimingIntervalType] forKey:kTimerIntervalTypeAtBackgroundEntryKey];
@@ -224,10 +231,13 @@
     generalTimer = nil;
 }
 
-- (void)resetApplicationState {
+- (void)resetApplicationState:(NSNotification*)notification {
     
     NSLog(@"Restart Application State");
     
+    // TODO: check if all the pomodoro are done and if yes deactivate all buttons
+    
+    // TODO: check the state of the player and if running update the state.
 }
 
 /*

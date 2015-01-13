@@ -22,6 +22,8 @@
 
 +(void)changeDayIfNeede;
 
++(void)setTodayPomodoro:(unsigned short)newPomodoValue;
+
 // used for tests
 +(BOOL)isYesterdayTestValue;
 +(void)setIsYesterdayTestValue:(BOOL)value;

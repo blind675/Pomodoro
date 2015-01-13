@@ -95,10 +95,11 @@
     NSLog(@"Application Did Become Active");
     
     unsigned short timeLeft = [[TimerManager sharedInstance] resetTheTimerStateAndReturnTheRemainingTimeToNextState];
-    
     [StatisticsModel changeDayIfNeede];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kApplicationStartedKey object:self];
+    NSDictionary* userData = @{@"timeLeft": @(timeLeft)};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kApplicationStartedKey object:self userInfo:userData];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

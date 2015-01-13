@@ -91,21 +91,51 @@
     // read internal timer state
     NSDate *lastTimestamp = [[NSUserDefaults standardUserDefaults] objectForKey:kLastTimeAppEnteredBackgroundTimestampKey];
     double secondsTillNow = abs([lastTimestamp timeIntervalSinceNow]);
-    
     long timeLeft = [[NSUserDefaults standardUserDefaults] integerForKey:kTimeLeftUntilNextStateKey];
+    
     long lastStateValue = [[NSUserDefaults standardUserDefaults] integerForKey:kTimerStateAtBackgroundEntryKey];
     long lastIntervalTypeValue = [[NSUserDefaults standardUserDefaults] integerForKey:kTimerIntervalTypeAtBackgroundEntryKey];
     
-    NSLog(@" last timestamp:%@",lastTimestamp);
-    NSLog(@" time left:%ld",timeLeft);
-    NSLog(@" seconds since the app entered background:%f",secondsTillNow);
-    NSLog(@" last state:%ld",lastStateValue);
-    NSLog(@" last interval type:%ld",lastIntervalTypeValue);
+    NSLog(@" RESET THE STATE");
+    NSLog(@"   - last timestamp:%@",lastTimestamp);
+    NSLog(@"   - now  timestamp:%@",[NSDate date]);
+    NSLog(@"   - time left:%ld",timeLeft);
+    NSLog(@"   - seconds since the app entered background:%f",secondsTillNow);
+    
+    NSLog(@"   - last state:%ld",lastStateValue);
+    NSLog(@"   - last interval type:%ld",lastIntervalTypeValue);
+    
+    unsigned short maxPomodori = abs((kWaningHours * 60 * 60) / [TimerModel workingTime] + [TimerModel shortPauseTime]);
+    
+    double maxWorkingSeconds = (maxPomodori - [StatisticsModel todaysPomodoro]) * ([TimerModel workingTime] + [TimerModel shortPauseTime]) +
+                    abs ((maxPomodori - [StatisticsModel todaysPomodoro]) / 4 ) * ([TimerModel longPauseTime] - [TimerModel shortPauseTime]);
+    
+    NSLog(@"   - max pomodori for today:%hu",maxPomodori);
+    NSLog(@"   - max seconds for today:%f",maxWorkingSeconds);
+    
+    double remainingTimeFromTheCurrentInterval = 0;
     
     if (lastStateValue == TimerStart) {
+        
+        // keep the timer state running
+        [TimerModel setCurrentTimerState:1];
+        
         // no stage change or anything
-        if (secondsTillNow < remainingTime) {
-            return remainingTime - secondsTillNow;
+        if (secondsTillNow < timeLeft) {
+    
+            remainingTimeFromTheCurrentInterval = timeLeft - secondsTillNow;
+            // also set the correct interval state
+            [TimerModel setCurrentTimingIntervalType:(int)lastIntervalTypeValue];
+            
+        } else if (secondsTillNow > maxPomodori){
+        
+            remainingTimeFromTheCurrentInterval = 0;
+            // also set the correct interval state
+            [TimerModel setCurrentTimingIntervalType:11];
+            [TimerModel setCurrentTimerState:3];
+            // also set the pomodorii
+            [StatisticsModel setTodayPomodoro:maxPomodori];
+            
         } else {
             
             NSArray *durationArray = @[[NSNumber numberWithUnsignedShort:[TimerModel workingTime]],[NSNumber numberWithUnsignedShort:[TimerModel shortPauseTime]],
@@ -121,28 +151,34 @@
                 intervalPointerIndex++;
             }
             
-            double remainingTimeUntilNext = 0;
-            
             while (secondsTillNow > 0) {
                 
-                remainingTimeUntilNext = secondsTillNow ;
+                remainingTimeFromTheCurrentInterval = secondsTillNow ;
                 
                 intervalPointerIndex++;
-                if (intervalPointerIndex == 8) {
+                
+                [TimerModel setCurrentTimingIntervalType:ShortPause];
+                
+                if (intervalPointerIndex >= 8) {
                     intervalPointerIndex = 0;
                 }
+                
+                if (intervalPointerIndex == 7) {
+                    [TimerModel setCurrentTimingIntervalType:LongPause];
+                }
+                
+                if (intervalPointerIndex % 2 == 0) {
+                    [StatisticsModel incrementTodaysPomodoro];
+                    [TimerModel setCurrentTimingIntervalType:WorkingTime];
+                }
+                
                 secondsTillNow -= [durationArray[intervalPointerIndex] unsignedShortValue];
             }
             
-            NSLog(@" remaining time from interval:%f",remainingTimeUntilNext);
-            
-            //TODO: find the interval type and set it
+            NSLog(@" remaining time from interval:%f",remainingTimeFromTheCurrentInterval);
         }
     }
     
-    // if the last state was stoped of pause do nothing
-    
-
-    return 0;
+    return remainingTimeFromTheCurrentInterval;
 }
 @end
