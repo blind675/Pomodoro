@@ -10,6 +10,7 @@
 #import "TimerModel.h"
 #import "TimerManager.h"
 #import "Constants.h"
+#import "StatisticsModel.h"
 
 @interface MainViewController (){
     unsigned short countDownValue;
@@ -235,9 +236,29 @@
     
     NSLog(@"Restart Application State");
     
-    // TODO: check if all the pomodoro are done and if yes deactivate all buttons
+    // check if all the pomodoro are done and if yes deactivate all buttons
+    unsigned short maxPomodori = abs((kWaningHours * 60 * 60) / [TimerModel workingTime] + [TimerModel shortPauseTime]);
     
-    // TODO: check the state of the player and if running update the state.
+    if ([StatisticsModel todaysPomodoro] >= maxPomodori) {
+        self.startButton.enabled = NO;
+        self.stopButton.enabled = NO;
+        self.pauseButton.enabled = NO;
+    } if ([TimerModel currentTimerState] == TimerStart ) {
+        
+        // check the state of the player and if running update the state.
+        NSDictionary* userInfo = notification.userInfo;
+        NSNumber* timeLeft = (NSNumber*)userInfo[@"timeLeft"];
+        NSLog (@"Successfully received test notification! %i", timeLeft.unsignedShortValue);
+        
+        [[TimerManager sharedInstance] pauseTimerAtValue:timeLeft.unsignedShortValue];
+        
+        countDownValue = [[TimerManager sharedInstance] startTimer];
+        
+        [self takeCareOfTheUI];
+        
+        // create a general timer that trigers once every second
+        generalTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTicked) userInfo:nil repeats:YES];
+    }
 }
 
 /*

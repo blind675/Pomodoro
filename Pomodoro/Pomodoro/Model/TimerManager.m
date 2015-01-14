@@ -45,7 +45,7 @@
     
     [TimerModel setCurrentTimerState:TimerStart];
     
-//    [[NotificationManager sharedInstance] addNotificationsListWithRemainingTime:countDounValue];
+    [[NotificationManager sharedInstance] addNotificationsListWithRemainingTime:countDounValue];
     
     return countDounValue;
 }
