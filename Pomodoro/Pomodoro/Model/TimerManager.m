@@ -151,17 +151,21 @@
                 intervalPointerIndex++;
             }
             
-            while (secondsTillNow > 0) {
-                
-                remainingTimeFromTheCurrentInterval = secondsTillNow ;
-                
+            // remove the remaining time of the current interval from the totat time spent offline
+            secondsTillNow = secondsTillNow - timeLeft;
+            
+            // TODO: test;
+            do {
+          
                 intervalPointerIndex++;
-                
-                [TimerModel setCurrentTimingIntervalType:ShortPause];
                 
                 if (intervalPointerIndex >= 8) {
                     intervalPointerIndex = 0;
                 }
+                
+                remainingTimeFromTheCurrentInterval = [durationArray[intervalPointerIndex] unsignedShortValue] - secondsTillNow;
+                
+                [TimerModel setCurrentTimingIntervalType:ShortPause];
                 
                 if (intervalPointerIndex == 7) {
                     [TimerModel setCurrentTimingIntervalType:LongPause];
@@ -172,8 +176,9 @@
                     [TimerModel setCurrentTimingIntervalType:WorkingTime];
                 }
                 
-                secondsTillNow -= [durationArray[intervalPointerIndex] unsignedShortValue];
-            }
+                secondsTillNow = secondsTillNow - [durationArray[intervalPointerIndex] unsignedShortValue];
+            
+            } while (secondsTillNow > [TimerModel shortPauseTime]);
             
             NSLog(@" remaining time from interval:%f",remainingTimeFromTheCurrentInterval);
         }

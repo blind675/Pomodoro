@@ -32,8 +32,8 @@ static IntervalType intervalType;
     unsigned short value = (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kWorkingTimeKey];
     if (value == 0) {
         // 1500 = 25 min
-        return 1500;
-//        return 10;
+//        return 1500;
+        return 180;
     } else {
         return value;
     }
@@ -44,8 +44,8 @@ static IntervalType intervalType;
     unsigned short value = (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kShortPauseTimeKey];
     if (value == 0) {
         //  300 =  5 min
-        return 300;
-//        return 4;
+//        return 300;
+        return 100;
     } else {
         return value;
     }
@@ -56,8 +56,8 @@ static IntervalType intervalType;
     unsigned short value = (unsigned short)[[NSUserDefaults standardUserDefaults] integerForKey:kLongPauseTimeKey];
     if (value == 0) {
         //  900 = 15 min
-        return 900;
-//        return 7;
+//        return 900;
+        return 135;
     } else {
         return value;
     }

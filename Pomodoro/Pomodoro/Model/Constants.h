@@ -9,8 +9,8 @@
 #ifndef Pomodoro_Constants_h
 #define Pomodoro_Constants_h
 
-#define kMaxWorkingHours 12
-#define kWaningHours 9
+//#define kMaxWorkingHours 12
+#define kWaningHours 2
 
 // saving data
 #define kLastTimeAppEnteredBackgroundTimestampKey @"lastTimeAppEnteredBackgroundTimestampKey"
