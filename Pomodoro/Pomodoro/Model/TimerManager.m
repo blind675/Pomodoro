@@ -154,7 +154,8 @@
             // remove the remaining time of the current interval from the totat time spent offline
             secondsTillNow = secondsTillNow - timeLeft;
             
-            // TODO: test;
+            // seems to work ...
+            // not tested if the calculations are exacte but except for that woks fine.
             do {
           
                 intervalPointerIndex++;

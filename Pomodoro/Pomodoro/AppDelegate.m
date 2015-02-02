@@ -24,42 +24,46 @@
     // app doesen't have notification enabled
     if (![[NotificationManager sharedInstance] areNotificationsEnabledByTheUser]) {
         
-        // 1. Create the actions **************************************************
+//        // 1. Create the actions **************************************************
+//        
+//        // OK Action
+//        UIMutableUserNotificationAction *OKAction = [[UIMutableUserNotificationAction alloc] init];
+//        OKAction.identifier = kOKActionKey;
+//        OKAction.title = @"OK";
+//        OKAction.activationMode = UIUserNotificationActivationModeBackground;
+//        OKAction.authenticationRequired = YES;
+//        OKAction.destructive = NO;
+//        
+//        // Continuie Action
+//        UIMutableUserNotificationAction *KeepGoingAction = [[UIMutableUserNotificationAction alloc] init];
+//        KeepGoingAction.identifier = kKeepGoingActionKey;
+//        KeepGoingAction.title = @"Keep Going";
+//        KeepGoingAction.activationMode = UIUserNotificationActivationModeBackground;
+//        KeepGoingAction.authenticationRequired = YES;
+//        KeepGoingAction.destructive = NO;
+//        
+//        // 2. Create the category ***********************************************
+//        
+//        // Category
+//        UIMutableUserNotificationCategory *warningNotificationCategory = [[UIMutableUserNotificationCategory alloc] init];
+//        warningNotificationCategory.identifier = kWarningNotificationCategoryKey;
+//        
+//        // A. Set actions for the default context
+//        [warningNotificationCategory setActions:@[OKAction,KeepGoingAction] forContext:UIUserNotificationActionContextDefault];
+//        // B. Set actions for the minimal context
+//        [warningNotificationCategory setActions:@[OKAction,KeepGoingAction] forContext:UIUserNotificationActionContextMinimal];
+//        
+//        NSSet *categories = [NSSet setWithObjects:warningNotificationCategory,nil];
+//        
+//        // 3. Notification Registration *****************************************
+//        
+//        // New for iOS 8 - Register the notifications
+//        UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+//        UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:types categories:categories];
+//        [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
         
-        // OK Action
-        UIMutableUserNotificationAction *OKAction = [[UIMutableUserNotificationAction alloc] init];
-        OKAction.identifier = kOKActionKey;
-        OKAction.title = @"OK";
-        OKAction.activationMode = UIUserNotificationActivationModeBackground;
-        OKAction.authenticationRequired = YES;
-        OKAction.destructive = NO;
-        
-        // Continuie Action
-        UIMutableUserNotificationAction *KeepGoingAction = [[UIMutableUserNotificationAction alloc] init];
-        KeepGoingAction.identifier = kKeepGoingActionKey;
-        KeepGoingAction.title = @"Keep Going";
-        KeepGoingAction.activationMode = UIUserNotificationActivationModeBackground;
-        KeepGoingAction.authenticationRequired = YES;
-        KeepGoingAction.destructive = NO;
-        
-        // 2. Create the category ***********************************************
-        
-        // Category
-        UIMutableUserNotificationCategory *warningNotificationCategory = [[UIMutableUserNotificationCategory alloc] init];
-        warningNotificationCategory.identifier = kWarningNotificationCategoryKey;
-        
-        // A. Set actions for the default context
-        [warningNotificationCategory setActions:@[OKAction,KeepGoingAction] forContext:UIUserNotificationActionContextDefault];
-        // B. Set actions for the minimal context
-        [warningNotificationCategory setActions:@[OKAction,KeepGoingAction] forContext:UIUserNotificationActionContextMinimal];
-        
-        NSSet *categories = [NSSet setWithObjects:warningNotificationCategory,nil];
-        
-        // 3. Notification Registration *****************************************
-        
-        // New for iOS 8 - Register the notifications
         UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-        UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:types categories:categories];
+        UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
     }
     

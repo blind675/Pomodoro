@@ -15,6 +15,7 @@
 @interface MainViewController (){
     unsigned short countDownValue;
     NSTimer *generalTimer;
+    BOOL zoomAnimationDone;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
@@ -39,6 +40,8 @@
     NSLog(@"short time:%hd",[TimerModel shortPauseTime]);
     NSLog(@"long time:%hd",[TimerModel longPauseTime]);
     
+    zoomAnimationDone = NO;
+    
     // just like pressing the stop button
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(stopButtonPressed:)
@@ -61,6 +64,31 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    if (!zoomAnimationDone) {
+        
+        zoomAnimationDone = YES;
+        
+        [self.view layoutIfNeeded];
+        
+        UIImageView *auxView = [[UIImageView alloc] initWithFrame:self.backgroundImage.frame];
+        auxView.image = [UIImage imageNamed:@"splashImageSet"];
+        
+        self.backgroundImage.hidden = YES;
+        [self.view insertSubview:auxView aboveSubview:self.backgroundImage];
+        
+        [UIView animateWithDuration:1 animations:^{
+            
+            auxView.frame = CGRectMake(- self.backgroundImage.frame.size.width , - self.backgroundImage.frame.size.height ,self.backgroundImage.frame.size.width * 3, self.backgroundImage.frame.size.height *3 );
+            
+        } completion:^(BOOL finished){
+            
+            self.backgroundImage.hidden = NO;
+            [auxView removeFromSuperview];
+            
+        }];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

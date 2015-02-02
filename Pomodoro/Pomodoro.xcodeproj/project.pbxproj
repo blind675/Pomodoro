@@ -27,6 +27,15 @@
 		C450D4941A38C788000DFFE5 /* tomato-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C450D48E1A38C788000DFFE5 /* tomato-red@2x.png */; };
 		C450D4971A38CAD5000DFFE5 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C450D4961A38CAD5000DFFE5 /* CollectionViewCell.m */; };
 		C450D49A1A38D698000DFFE5 /* StatisticsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C450D4991A38D698000DFFE5 /* StatisticsModel.m */; };
+		C4633F131A782AE80035E5D4 /* bottomiPhone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4633F0E1A782AE80035E5D4 /* bottomiPhone5@2x.png */; };
+		C4633F141A782AE80035E5D4 /* leftiPhone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4633F0F1A782AE80035E5D4 /* leftiPhone5@2x.png */; };
+		C4633F151A782AE80035E5D4 /* midiPhone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4633F101A782AE80035E5D4 /* midiPhone5@2x.png */; };
+		C4633F161A782AE80035E5D4 /* rightPhone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4633F111A782AE80035E5D4 /* rightPhone5@2x.png */; };
+		C4633F171A782AE80035E5D4 /* topiPhone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4633F121A782AE80035E5D4 /* topiPhone5@2x.png */; };
+		C4633F191A782AF20035E5D4 /* iPhone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4633F181A782AF20035E5D4 /* iPhone5@2x.png */; };
+		C466F6931A76E22D00D25CC3 /* iPhone6+@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C466F6901A76E22D00D25CC3 /* iPhone6+@2x.png */; };
+		C466F6941A76E22D00D25CC3 /* iPhone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C466F6911A76E22D00D25CC3 /* iPhone6@2x.png */; };
+		C466F6961A76E32D00D25CC3 /* iPhone4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C466F6951A76E32D00D25CC3 /* iPhone4@2x.png */; };
 		C490DA3D1A32630B00B5502B /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C490DA3C1A32630B00B5502B /* RQShineLabel.m */; };
 		C4C6B0711A3A219A007873BC /* NSDate+Yesterday.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0701A3A219A007873BC /* NSDate+Yesterday.m */; };
 		C4C6B0731A3A2E65007873BC /* DateExtraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0721A3A2E65007873BC /* DateExtraTests.m */; };
@@ -109,6 +118,15 @@
 		C450D4961A38CAD5000DFFE5 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		C450D4981A38D698000DFFE5 /* StatisticsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsModel.h; sourceTree = "<group>"; };
 		C450D4991A38D698000DFFE5 /* StatisticsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsModel.m; sourceTree = "<group>"; };
+		C4633F0E1A782AE80035E5D4 /* bottomiPhone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottomiPhone5@2x.png"; sourceTree = "<group>"; };
+		C4633F0F1A782AE80035E5D4 /* leftiPhone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leftiPhone5@2x.png"; sourceTree = "<group>"; };
+		C4633F101A782AE80035E5D4 /* midiPhone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "midiPhone5@2x.png"; sourceTree = "<group>"; };
+		C4633F111A782AE80035E5D4 /* rightPhone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightPhone5@2x.png"; sourceTree = "<group>"; };
+		C4633F121A782AE80035E5D4 /* topiPhone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topiPhone5@2x.png"; sourceTree = "<group>"; };
+		C4633F181A782AF20035E5D4 /* iPhone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone5@2x.png"; sourceTree = "<group>"; };
+		C466F6901A76E22D00D25CC3 /* iPhone6+@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone6+@2x.png"; sourceTree = "<group>"; };
+		C466F6911A76E22D00D25CC3 /* iPhone6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone6@2x.png"; sourceTree = "<group>"; };
+		C466F6951A76E32D00D25CC3 /* iPhone4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone4@2x.png"; sourceTree = "<group>"; };
 		C490DA3B1A32630B00B5502B /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RQShineLabel.h; path = Libs/FXLib/RQShine/RQShineLabel.h; sourceTree = "<group>"; };
 		C490DA3C1A32630B00B5502B /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RQShineLabel.m; path = Libs/FXLib/RQShine/RQShineLabel.m; sourceTree = "<group>"; };
 		C4C6B06F1A3A219A007873BC /* NSDate+Yesterday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Yesterday.h"; sourceTree = "<group>"; };
@@ -287,6 +305,8 @@
 		C45B09021A3DEA0100475CD1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C4633F0D1A782AE80035E5D4 /* parts */,
+				C466F68E1A76E22D00D25CC3 /* splash */,
 				C450D4891A38C788000DFFE5 /* tomato-contur@2x.png */,
 				C450D48A1A38C788000DFFE5 /* tomato-blue@2x.png */,
 				C450D48B1A38C788000DFFE5 /* tomato-dark-green@2x.png */,
@@ -295,6 +315,29 @@
 				C450D48E1A38C788000DFFE5 /* tomato-red@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		C4633F0D1A782AE80035E5D4 /* parts */ = {
+			isa = PBXGroup;
+			children = (
+				C4633F0E1A782AE80035E5D4 /* bottomiPhone5@2x.png */,
+				C4633F0F1A782AE80035E5D4 /* leftiPhone5@2x.png */,
+				C4633F101A782AE80035E5D4 /* midiPhone5@2x.png */,
+				C4633F111A782AE80035E5D4 /* rightPhone5@2x.png */,
+				C4633F121A782AE80035E5D4 /* topiPhone5@2x.png */,
+			);
+			path = parts;
+			sourceTree = "<group>";
+		};
+		C466F68E1A76E22D00D25CC3 /* splash */ = {
+			isa = PBXGroup;
+			children = (
+				C466F6951A76E32D00D25CC3 /* iPhone4@2x.png */,
+				C4633F181A782AF20035E5D4 /* iPhone5@2x.png */,
+				C466F6901A76E22D00D25CC3 /* iPhone6+@2x.png */,
+				C466F6911A76E22D00D25CC3 /* iPhone6@2x.png */,
+			);
+			path = splash;
 			sourceTree = "<group>";
 		};
 		C490DA371A325E5D00B5502B /* FXLib */ = {
@@ -491,13 +534,22 @@
 				EB8D5BC71A13D93D002DC189 /* Main.storyboard in Resources */,
 				EB8D5BCC1A13D93D002DC189 /* LaunchScreen.xib in Resources */,
 				C4339B001A34C7E900FE7EA9 /* README.txt in Resources */,
+				C4633F191A782AF20035E5D4 /* iPhone5@2x.png in Resources */,
+				C4633F151A782AE80035E5D4 /* midiPhone5@2x.png in Resources */,
 				C450D4931A38C788000DFFE5 /* tomato-orange@2x.png in Resources */,
+				C466F6941A76E22D00D25CC3 /* iPhone6@2x.png in Resources */,
 				C450D4901A38C788000DFFE5 /* tomato-blue@2x.png in Resources */,
 				EB8D5BC91A13D93D002DC189 /* Images.xcassets in Resources */,
+				C4633F161A782AE80035E5D4 /* rightPhone5@2x.png in Resources */,
+				C4633F131A782AE80035E5D4 /* bottomiPhone5@2x.png in Resources */,
+				C4633F171A782AE80035E5D4 /* topiPhone5@2x.png in Resources */,
 				C450D4921A38C788000DFFE5 /* tomato-green@2x.png in Resources */,
 				C450D4941A38C788000DFFE5 /* tomato-red@2x.png in Resources */,
 				C450D4911A38C788000DFFE5 /* tomato-dark-green@2x.png in Resources */,
+				C4633F141A782AE80035E5D4 /* leftiPhone5@2x.png in Resources */,
+				C466F6961A76E32D00D25CC3 /* iPhone4@2x.png in Resources */,
 				C450D48F1A38C788000DFFE5 /* tomato-contur@2x.png in Resources */,
+				C466F6931A76E22D00D25CC3 /* iPhone6+@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -155,8 +155,8 @@
             nextNotification.alertBody = nextNotificationText;
             nextNotification.soundName = UILocalNotificationDefaultSoundName;
             nextNotification.fireDate = nextNotificationTime;
-            nextNotification.category = kWarningNotificationCategoryKey;
-            nextNotification.repeatInterval = 0;
+//            nextNotification.category = kWarningNotificationCategoryKey;
+//            nextNotification.repeatInterval = 0;
             
         }
 //        [[UIApplication sharedApplication] presentLocalNotificationNow:nextNotification];
