@@ -53,22 +53,28 @@
 {
     CollectionViewCell *tomatoCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"tomatoCel" forIndexPath:indexPath];
     
-    if (indexPath.item < 10) {
-        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-red.png"];
-    } else if (indexPath.item <15) {
-        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-orange.png"];
-    } else if (indexPath.item <20) {
-        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-green.png"];
-    } else if (indexPath.item <25) {
-        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-dark-green.png"];
-    } else if (indexPath.item <30) {
-        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-blue.png"];
-    } else {
+//    if (indexPath.item < 10) {
+//        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-red.png"];
+//    } else if (indexPath.item <15) {
+//        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-orange.png"];
+//    } else if (indexPath.item <20) {
+//        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-green.png"];
+//    } else if (indexPath.item <25) {
+//        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-dark-green.png"];
+//    } else if (indexPath.item <30) {
+//        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-blue.png"];
+//    } else {
         tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-contur.png"];
-    }
+//    }
 
     if ([StatisticsModel todaysPomodoro] > indexPath.item) {
-        tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-orange.png"];
+        if (indexPath.item < 5) {
+            tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-green.png"];
+        } else if (indexPath.item < 30) {
+            tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-orange.png"];
+        } else {
+            tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-red.png"];
+        }
     }
     return tomatoCell;
 }
