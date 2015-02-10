@@ -37,6 +37,12 @@
 		C466F6941A76E22D00D25CC3 /* iPhone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C466F6911A76E22D00D25CC3 /* iPhone6@2x.png */; };
 		C466F6961A76E32D00D25CC3 /* iPhone4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C466F6951A76E32D00D25CC3 /* iPhone4@2x.png */; };
 		C490DA3D1A32630B00B5502B /* RQShineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C490DA3C1A32630B00B5502B /* RQShineLabel.m */; };
+		C4984CD41A86556900A9BDB6 /* pomodoro_gradient_29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4984CCE1A86556900A9BDB6 /* pomodoro_gradient_29@2x.png */; };
+		C4984CD51A86556900A9BDB6 /* pomodoro_gradient_29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4984CCF1A86556900A9BDB6 /* pomodoro_gradient_29@3x.png */; };
+		C4984CD61A86556900A9BDB6 /* pomodoro_gradient_40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4984CD01A86556900A9BDB6 /* pomodoro_gradient_40@2x.png */; };
+		C4984CD71A86556900A9BDB6 /* pomodoro_gradient_60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4984CD11A86556900A9BDB6 /* pomodoro_gradient_60@2x.png */; };
+		C4984CD81A86556900A9BDB6 /* pomodoro_gradient_60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4984CD21A86556900A9BDB6 /* pomodoro_gradient_60@3x.png */; };
+		C4984CD91A86556900A9BDB6 /* pomodoro_gradient_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = C4984CD31A86556900A9BDB6 /* pomodoro_gradient_1024.png */; };
 		C4C6B0711A3A219A007873BC /* NSDate+Yesterday.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0701A3A219A007873BC /* NSDate+Yesterday.m */; };
 		C4C6B0731A3A2E65007873BC /* DateExtraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0721A3A2E65007873BC /* DateExtraTests.m */; };
 		C4C6B0751A3A40AB007873BC /* StatisticsModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C6B0741A3A40AB007873BC /* StatisticsModelTests.m */; };
@@ -129,6 +135,12 @@
 		C466F6951A76E32D00D25CC3 /* iPhone4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone4@2x.png"; sourceTree = "<group>"; };
 		C490DA3B1A32630B00B5502B /* RQShineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RQShineLabel.h; path = Libs/FXLib/RQShine/RQShineLabel.h; sourceTree = "<group>"; };
 		C490DA3C1A32630B00B5502B /* RQShineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RQShineLabel.m; path = Libs/FXLib/RQShine/RQShineLabel.m; sourceTree = "<group>"; };
+		C4984CCE1A86556900A9BDB6 /* pomodoro_gradient_29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pomodoro_gradient_29@2x.png"; sourceTree = "<group>"; };
+		C4984CCF1A86556900A9BDB6 /* pomodoro_gradient_29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pomodoro_gradient_29@3x.png"; sourceTree = "<group>"; };
+		C4984CD01A86556900A9BDB6 /* pomodoro_gradient_40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pomodoro_gradient_40@2x.png"; sourceTree = "<group>"; };
+		C4984CD11A86556900A9BDB6 /* pomodoro_gradient_60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pomodoro_gradient_60@2x.png"; sourceTree = "<group>"; };
+		C4984CD21A86556900A9BDB6 /* pomodoro_gradient_60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pomodoro_gradient_60@3x.png"; sourceTree = "<group>"; };
+		C4984CD31A86556900A9BDB6 /* pomodoro_gradient_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pomodoro_gradient_1024.png; sourceTree = "<group>"; };
 		C4C6B06F1A3A219A007873BC /* NSDate+Yesterday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Yesterday.h"; sourceTree = "<group>"; };
 		C4C6B0701A3A219A007873BC /* NSDate+Yesterday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Yesterday.m"; sourceTree = "<group>"; };
 		C4C6B0721A3A2E65007873BC /* DateExtraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateExtraTests.m; sourceTree = "<group>"; };
@@ -305,6 +317,7 @@
 		C45B09021A3DEA0100475CD1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C4984CBD1A863FB100A9BDB6 /* icon */,
 				C4633F0D1A782AE80035E5D4 /* parts */,
 				C466F68E1A76E22D00D25CC3 /* splash */,
 				C450D4891A38C788000DFFE5 /* tomato-contur@2x.png */,
@@ -348,6 +361,19 @@
 			);
 			name = FXLib;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		C4984CBD1A863FB100A9BDB6 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				C4984CCE1A86556900A9BDB6 /* pomodoro_gradient_29@2x.png */,
+				C4984CCF1A86556900A9BDB6 /* pomodoro_gradient_29@3x.png */,
+				C4984CD01A86556900A9BDB6 /* pomodoro_gradient_40@2x.png */,
+				C4984CD11A86556900A9BDB6 /* pomodoro_gradient_60@2x.png */,
+				C4984CD21A86556900A9BDB6 /* pomodoro_gradient_60@3x.png */,
+				C4984CD31A86556900A9BDB6 /* pomodoro_gradient_1024.png */,
+			);
+			path = icon;
 			sourceTree = "<group>";
 		};
 		C4C6B06E1A3A2108007873BC /* DateExtra */ = {
@@ -535,11 +561,16 @@
 				EB8D5BCC1A13D93D002DC189 /* LaunchScreen.xib in Resources */,
 				C4339B001A34C7E900FE7EA9 /* README.txt in Resources */,
 				C4633F191A782AF20035E5D4 /* iPhone5@2x.png in Resources */,
+				C4984CD91A86556900A9BDB6 /* pomodoro_gradient_1024.png in Resources */,
 				C4633F151A782AE80035E5D4 /* midiPhone5@2x.png in Resources */,
 				C450D4931A38C788000DFFE5 /* tomato-orange@2x.png in Resources */,
 				C466F6941A76E22D00D25CC3 /* iPhone6@2x.png in Resources */,
+				C4984CD51A86556900A9BDB6 /* pomodoro_gradient_29@3x.png in Resources */,
 				C450D4901A38C788000DFFE5 /* tomato-blue@2x.png in Resources */,
+				C4984CD81A86556900A9BDB6 /* pomodoro_gradient_60@3x.png in Resources */,
 				EB8D5BC91A13D93D002DC189 /* Images.xcassets in Resources */,
+				C4984CD61A86556900A9BDB6 /* pomodoro_gradient_40@2x.png in Resources */,
+				C4984CD41A86556900A9BDB6 /* pomodoro_gradient_29@2x.png in Resources */,
 				C4633F161A782AE80035E5D4 /* rightPhone5@2x.png in Resources */,
 				C4633F131A782AE80035E5D4 /* bottomiPhone5@2x.png in Resources */,
 				C4633F171A782AE80035E5D4 /* topiPhone5@2x.png in Resources */,
@@ -548,6 +579,7 @@
 				C450D4911A38C788000DFFE5 /* tomato-dark-green@2x.png in Resources */,
 				C4633F141A782AE80035E5D4 /* leftiPhone5@2x.png in Resources */,
 				C466F6961A76E32D00D25CC3 /* iPhone4@2x.png in Resources */,
+				C4984CD71A86556900A9BDB6 /* pomodoro_gradient_60@2x.png in Resources */,
 				C450D48F1A38C788000DFFE5 /* tomato-contur@2x.png in Resources */,
 				C466F6931A76E22D00D25CC3 /* iPhone6+@2x.png in Resources */,
 			);
