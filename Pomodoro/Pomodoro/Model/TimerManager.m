@@ -90,7 +90,7 @@
     
     // read internal timer state
     NSDate *lastTimestamp = [[NSUserDefaults standardUserDefaults] objectForKey:kLastTimeAppEnteredBackgroundTimestampKey];
-    double secondsTillNow = abs([lastTimestamp timeIntervalSinceNow]);
+    double secondsTillNow = fabs([lastTimestamp timeIntervalSinceNow]);
     long timeLeft = [[NSUserDefaults standardUserDefaults] integerForKey:kTimeLeftUntilNextStateKey];
     
     long lastStateValue = [[NSUserDefaults standardUserDefaults] integerForKey:kTimerStateAtBackgroundEntryKey];
@@ -105,7 +105,7 @@
     NSLog(@"   - last state:%ld",lastStateValue);
     NSLog(@"   - last interval type:%ld",lastIntervalTypeValue);
     
-    unsigned short maxPomodori = abs((kWaningHours * 60 * 60) / [TimerModel workingTime] + [TimerModel shortPauseTime]);
+    unsigned short maxPomodori = abs((kWarningHours * 60 * 60) / [TimerModel workingTime] + [TimerModel shortPauseTime]);
     
     double maxWorkingSeconds = (maxPomodori - [StatisticsModel todaysPomodoro]) * ([TimerModel workingTime] + [TimerModel shortPauseTime]) +
                     abs ((maxPomodori - [StatisticsModel todaysPomodoro]) / 4 ) * ([TimerModel longPauseTime] - [TimerModel shortPauseTime]);

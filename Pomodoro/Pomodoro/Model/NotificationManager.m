@@ -67,7 +67,7 @@
                                    [NSNumber numberWithUnsignedShort:[TimerModel workingTime]],[NSNumber numberWithUnsignedShort:[TimerModel longPauseTime]]];
         
         // determine how many notifications until the warning hours mark
-        double timeLeftUntilWarning = kWaningHours * 60 * 60 - [StatisticsModel todaysPomodoro] * [TimerModel workingTime];
+        double timeLeftUntilWarning = kWarningHours * 60 * 60 - [StatisticsModel todaysPomodoro] * [TimerModel workingTime];
         int pomodorosLeftUntilWarning = timeLeftUntilWarning / [TimerModel workingTime];
         NSLog(@" time left until warning:%f = %d (pomodori)",timeLeftUntilWarning,pomodorosLeftUntilWarning);
         
@@ -143,7 +143,7 @@
             intervalPointerIndex = 0;
         }
         
-        nextNotificationText = [NSString stringWithFormat:@"You have been working for more than %d hours. The pomodoro app will stop.",kWaningHours];
+        nextNotificationText = [NSString stringWithFormat:@"You have been working for more than %d hours. The pomodoro app will stop.",kWarningHours];
         NSLog(@"%d. NOTIFICATION TO SCHEDULE: time: %@ message: -%@-",pomodorosLeftUntilWarning * 2 ,nextNotificationTime, nextNotificationText);
         
         // schedule notification

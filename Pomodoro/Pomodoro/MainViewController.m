@@ -265,7 +265,7 @@
     NSLog(@"Restart Application State");
     
     // check if all the pomodoro are done and if yes deactivate all buttons
-    unsigned short maxPomodori = abs((kWaningHours * 60 * 60) / [TimerModel workingTime] + [TimerModel shortPauseTime]);
+    unsigned short maxPomodori = abs((kWarningHours * 60 * 60) / [TimerModel workingTime] + [TimerModel shortPauseTime]);
     
     if ([StatisticsModel todaysPomodoro] >= maxPomodori) {
         self.startButton.enabled = NO;
