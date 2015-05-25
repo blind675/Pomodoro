@@ -46,7 +46,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 32;
+    return 30;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -70,7 +70,7 @@
     if ([StatisticsModel todaysPomodoro] > indexPath.item) {
         if (indexPath.item < 5) {
             tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-green.png"];
-        } else if (indexPath.item < 30) {
+        } else if (indexPath.item < 25) {
             tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-orange.png"];
         } else {
             tomatoCell.tomatoImageView.image = [UIImage imageNamed:@"tomato-red.png"];

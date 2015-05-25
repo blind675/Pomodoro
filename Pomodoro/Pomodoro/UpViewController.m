@@ -26,9 +26,8 @@
     self.bannerView.adUnitID = @"ca-app-pub-4761990429695317/6628430382";
     self.bannerView.rootViewController = self;
     
-    GADRequest *request = [[GADRequest alloc]init];
-    
 #ifdef DEBUG
+    GADRequest *request = [[GADRequest alloc]init];
     request.testDevices = @[ GAD_SIMULATOR_ID ];
 #endif
     
